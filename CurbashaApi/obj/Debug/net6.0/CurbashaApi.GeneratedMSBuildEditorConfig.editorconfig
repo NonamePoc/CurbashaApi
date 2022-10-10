@@ -15,6 +15,38 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Curbasha\CurbashaWebApi\CurbashaApi\CurbashaApi
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Curbasha/CurbashaWebApi/CurbashaApi/CurbashaApi/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Curbasha/CurbashaWebApi/CurbashaApi/CurbashaApi/Areas/Identity/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Curbasha/CurbashaWebApi/CurbashaApi/CurbashaApi/Areas/Identity/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Curbasha/CurbashaWebApi/CurbashaApi/CurbashaApi/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Curbasha/CurbashaWebApi/CurbashaApi/CurbashaApi/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Curbasha/CurbashaWebApi/CurbashaApi/CurbashaApi/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Curbasha/CurbashaWebApi/CurbashaApi/CurbashaApi/Areas/Identity/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Curbasha/CurbashaWebApi/CurbashaApi/CurbashaApi/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Curbasha/CurbashaWebApi/CurbashaApi/CurbashaApi/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -33,26 +65,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Curbasha/CurbashaWebApi/CurbashaApi/CurbashaApi/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Curbasha/CurbashaWebApi/CurbashaApi/CurbashaApi/Views/UserAuths/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhzXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Curbasha/CurbashaWebApi/CurbashaApi/CurbashaApi/Views/UserAuths/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhzXERlbGV0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Curbasha/CurbashaWebApi/CurbashaApi/CurbashaApi/Views/UserAuths/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhzXERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Curbasha/CurbashaWebApi/CurbashaApi/CurbashaApi/Views/UserAuths/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhzXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Curbasha/CurbashaWebApi/CurbashaApi/CurbashaApi/Views/UserAuths/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Curbasha/CurbashaWebApi/CurbashaApi/CurbashaApi/Views/_ViewImports.cshtml]
