@@ -15,6 +15,7 @@ namespace CurbashaApi.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
 
