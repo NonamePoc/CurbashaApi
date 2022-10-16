@@ -36,6 +36,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/Contact/Index">Contact us</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Index">Admin</a>
+                            </li>
                         </ul>
                         <div class="user_option">
                             <a href="login.html" style="margin-right: 20px;">
@@ -68,7 +71,7 @@
                             </button>
                         </div>
                     </div>
-
+                    <partial name="_LoginPartial"/>
                 </nav>
             </div>
         </header>
@@ -79,11 +82,7 @@
         </main>
     </div>
 
-   @* <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - CurbashaApi - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>*@
+   
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

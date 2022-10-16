@@ -9,11 +9,14 @@ var connectionString = builder.Configuration.GetConnectionString("CurbashaApiCon
 builder.Services.AddDbContext<CurbashaApiContext>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+
+builder.Services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<CurbashaApiContext>();
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 
 
 
