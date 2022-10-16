@@ -5,46 +5,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CurbashaApi</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CurbashaApi.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="hero_area">
+        <!-- header section strats -->
+        <header class="header_section">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CurbashaApi</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial"/>
-                </div>
+                <nav class="navbar navbar-expand-lg custom_nav-container">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="images/logo.png" alt="" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav  ">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/Home/Index"> Home </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Shop/Index">Shop </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Furniture/Index"> Furniture </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Contact/Index">Contact us</a>
+                            </li>
+                        </ul>
+                        <div class="user_option">
+                            <a href="login.html" style="margin-right: 20px;">
+                                <img src="images/user.png" alt="">
+                                <span>
+                                    Login
+                                </span>
+                            </a>
+                            <a href="cart.html">
+                                <img src="images/shopping-cart.png" alt="">
+                                <span>
+                                    Cart
+                                </span>
+                            </a>
+
+                        </div>
+                    </div>
+                    <div>
+                        <div class="custom_menu-btn ">
+                            <button>
+                                <span class=" s-1">
+
+                                </span>
+                                <span class="s-2">
+
+                                </span>
+                                <span class="s-3">
+
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+
+                </nav>
             </div>
-        </nav>
-    </header>
+        </header>
+        </div>>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+   @* <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2022 - CurbashaApi - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-    </footer>
+    </footer>*@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script type="text/javascript">
+        $(".owl-carousel").owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            navText: [],
+            autoplay: true,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                420: {
+                    items: 2
+                },
+                1000: {
+                    items: 5
+                }
+            }
+
+        });
+    </script>
+    <script>
+        var nav = $("#navbarSupportedContent");
+        var btn = $(".custom_menu-btn");
+        btn.click
+        btn.click(function (e) {
+
+            e.preventDefault();
+            nav.toggleClass("lg_nav-toggle");
+            document.querySelector(".custom_menu-btn").classList.toggle("menu_btn-style")
+        });
+    </script>
+    <script>
+        $('.carousel').on('slid.bs.carousel', function () {
+            $(".indicator-2 li").removeClass("active");
+            indicators = $(".carousel-indicators li.active").data("slide-to");
+            a = $(".indicator-2").find("[data-slide-to='" + indicators + "']").addClass("active");
+            console.log(indicators);
+
+        })
+    </script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
