@@ -17,7 +17,7 @@ namespace CurbashaApi.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.9")
+                .HasAnnotation("ProductVersion", "6.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -30,29 +30,80 @@ namespace CurbashaApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("AspOrderId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("AspUserOrderId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Count")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
+                    b.Property<string>("OrderId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Quantity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Size")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AspUserOrderId");
 
-                    b.ToTable("AspUserItems");
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("AspOrderItems");
+                });
+
+            modelBuilder.Entity("CurbashaApi.Areas.Identity.Entity.AspProduct", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("AspSelectionsId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameProduct")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SelectionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AspSelectionsId");
+
+                    b.ToTable("AspProducts");
+                });
+
+            modelBuilder.Entity("CurbashaApi.Areas.Identity.Entity.AspSelections", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("SelectionName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AspSelections");
                 });
 
             modelBuilder.Entity("CurbashaApi.Areas.Identity.Entity.AspUserOrder", b =>
@@ -73,7 +124,7 @@ namespace CurbashaApi.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspUserOrders");
+                    b.ToTable("AspUserOrder");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -280,11 +331,28 @@ namespace CurbashaApi.Migrations
 
             modelBuilder.Entity("CurbashaApi.Areas.Identity.Entity.AspOrderItem", b =>
                 {
-                    b.HasOne("CurbashaApi.Areas.Identity.Entity.AspUserOrder", "AspUserOrder")
+                    b.HasOne("CurbashaApi.Areas.Identity.Entity.AspUserOrder", null)
                         .WithMany("OrderItems")
                         .HasForeignKey("AspUserOrderId");
 
-                    b.Navigation("AspUserOrder");
+                    b.HasOne("CurbashaApi.Areas.Identity.Entity.AspProduct", "Product")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("CurbashaApi.Areas.Identity.Entity.AspProduct", b =>
+                {
+                    b.HasOne("CurbashaApi.Areas.Identity.Entity.AspSelections", "AspSelections")
+                        .WithMany("Products")
+                        .HasForeignKey("AspSelectionsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AspSelections");
                 });
 
             modelBuilder.Entity("CurbashaApi.Areas.Identity.Entity.AspUserOrder", b =>
@@ -345,6 +413,16 @@ namespace CurbashaApi.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("CurbashaApi.Areas.Identity.Entity.AspProduct", b =>
+                {
+                    b.Navigation("OrderItems");
+                });
+
+            modelBuilder.Entity("CurbashaApi.Areas.Identity.Entity.AspSelections", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("CurbashaApi.Areas.Identity.Entity.AspUserOrder", b =>

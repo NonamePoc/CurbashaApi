@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace CurbashaApi.Areas.Identity.Entity
 {
-    public class AspUserOrder 
+    public class AspUserOrder
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

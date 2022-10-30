@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CurbashaApi.Migrations
 {
-    public partial class initialcommit : Migration
+    public partial class initialcommitv12 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,6 +46,19 @@ namespace CurbashaApi.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspSelections",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SelectionName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspSelections", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -155,45 +168,49 @@ namespace CurbashaApi.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspUserOrders",
+                name: "AspProducts",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    NameProduct = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SelectionId = table.Column<int>(type: "int", nullable: false),
+                    AspSelectionsId = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AspUserOrders", x => x.Id);
+                    table.PrimaryKey("PK_AspProducts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspUserOrders_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
+                        name: "FK_AspProducts_AspSelections_AspSelectionsId",
+                        column: x => x.AspSelectionsId,
+                        principalTable: "AspSelections",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspUserItems",
+                name: "AspOrderItems",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Size = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Count = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<double>(type: "float", nullable: false),
-                    AspOrderId = table.Column<int>(type: "int", nullable: false),
-                    AspUserOrderId = table.Column<int>(type: "int", nullable: true)
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    Size = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Quantity = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Price = table.Column<int>(type: "int", nullable: false),
+                    OrderId = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AspUserItems", x => x.Id);
+                    table.PrimaryKey("PK_AspOrderItems", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspUserItems_AspUserOrders_AspUserOrderId",
-                        column: x => x.AspUserOrderId,
-                        principalTable: "AspUserOrders",
-                        principalColumn: "Id");
+                        name: "FK_AspOrderItems_AspProducts_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "AspProducts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -236,14 +253,14 @@ namespace CurbashaApi.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspUserItems_AspUserOrderId",
-                table: "AspUserItems",
-                column: "AspUserOrderId");
+                name: "IX_AspOrderItems_ProductId",
+                table: "AspOrderItems",
+                column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspUserOrders_UserId",
-                table: "AspUserOrders",
-                column: "UserId");
+                name: "IX_AspProducts_AspSelectionsId",
+                table: "AspProducts",
+                column: "AspSelectionsId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -264,16 +281,19 @@ namespace CurbashaApi.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "AspUserItems");
+                name: "AspOrderItems");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspUserOrders");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "AspProducts");
+
+            migrationBuilder.DropTable(
+                name: "AspSelections");
         }
     }
 }

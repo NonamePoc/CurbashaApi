@@ -10,16 +10,16 @@ namespace CurbashaApi.Areas.Identity.Entity
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public string? Name { get; set; }
+        public int ProductId { get; set; }
+        
+        public AspProduct Product { get; set; }
 
-        public string? Size { get; set; }
+        public string Size { get; set; }
 
-        public int Count { get; set; }
+        public string Quantity { get; set; }
 
-        public double Price { get; set; }
+        public int Price { get; set; }
 
-        public int AspOrderId { get; set; }
-
-        public AspUserOrder? AspUserOrder { get; set; }
+        public string OrderId { get; set; }
     }
 }

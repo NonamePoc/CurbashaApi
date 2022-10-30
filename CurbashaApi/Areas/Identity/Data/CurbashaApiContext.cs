@@ -7,9 +7,13 @@ namespace CurbashaApi.Data;
 
 public class CurbashaApiContext : IdentityDbContext<IdentityUser>
 {
-    public DbSet<AspUserOrder> AspUserOrders { get; set; }
+    public DbSet<AspOrderItem> AspOrderItems { get; set; }
 
-    public DbSet<AspOrderItem> AspUserItems { get; set; }
+    public DbSet<AspProduct> AspProducts { get; set; }
+
+    public DbSet<AspSelections> AspSelections { get; set; }
+
+    public DbSet<AspUserOrder> AspUserOrder { get; set; }
 
     public CurbashaApiContext(DbContextOptions<CurbashaApiContext> options)
         : base(options)

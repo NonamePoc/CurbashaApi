@@ -552,3 +552,7 @@ C:\Curbash\CurbashWebAPI\CurbashaApi\CurbashaApi\obj\Debug\net6.0\scopedcss\proj
 C:\Curbash\CurbashWebAPI\CurbashaApi\CurbashaApi\obj\Debug\net6.0\CurbashaApi.csproj.CopyComplete
 C:\Curbash\CurbashWebAPI\CurbashaApi\CurbashaApi\obj\Debug\net6.0\CurbashaApi.genruntimeconfig.cache
 C:\Curbash\CurbashWebAPI\CurbashaApi\CurbashaApi\obj\Debug\net6.0\ref\CurbashaApi.dll
+D:\Curbasha\CurbashaWebApi\CurbashaApi\CurbashaApi\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Curbasha\CurbashaWebApi\CurbashaApi\CurbashaApi\bin\Debug\net6.0\MimeKit.dll
+D:\Curbasha\CurbashaWebApi\CurbashaApi\CurbashaApi\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+D:\Curbasha\CurbashaWebApi\CurbashaApi\CurbashaApi\bin\Debug\net6.0\MailKit.dll

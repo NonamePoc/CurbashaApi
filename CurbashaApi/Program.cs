@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Identity;
 using CurbashaApi.Data;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("CurbashaApiContextConnection") ?? throw new InvalidOperationException("Connection string 'CurbashaApiContextConnection' not found.");
@@ -12,13 +13,13 @@ builder.Services.AddDbContext<CurbashaApiContext>(options =>
 
 builder.Services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<CurbashaApiContext>();
+//builder.Services.AddTransient<IEmailSender>;
+
 
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-
-
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
