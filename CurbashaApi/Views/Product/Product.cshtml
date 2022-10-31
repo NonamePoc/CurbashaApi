@@ -1,7 +1,6 @@
-﻿@model CurbashaApi.ViewModel.ShopViewModel
-
+﻿@model CurbashaApi.Models.ProductModel
 @{
-    ViewData["Title"] = "Shop";
+    ViewData["Title"] = Model.Product.NameProduct;
 }
 
 <!DOCTYPE html>
@@ -35,40 +34,50 @@
     <link href="css/responsive.css" rel="stylesheet" />
 </head>
 
-<body class="sub_page">
-    @foreach (var selection in Model.Selections)
-    {
-        <section class="brand_section layout_padding">
-            <div class="container">
-                <div class="heading_container">
-                    <h2>
-                        @selection.SelectionName
-                    </h2>
-                </div>
 
-                @foreach (var product in Model.Products.Where(prod => prod.SelectionId == selection.Id))
-                {
-                    <div class="brand_container layout_padding2">
-                        <div class="box">
-                            <a asp-area="" asp-controller="Product" asp-action="Product" asp-route-id="@product.Id"
-                               asp-route-selectionName="@selection.SelectionName">
-                                <div class="img-box">
-                                    <img src="~/images/shirt.png" alt="">
-                                </div>
-                                <div class="detail-box">
-                                    <h6 class="price">
-                                        @product.Price UAH
-                                    </h6>
-                                    <h6>
-                                        @product.NameProduct
-                                    </h6>
-                                </div>
-                            </a>
-                        </div>
+<body class="sub_page">
+    <section class="product-section">
+
+        <!-- Left Column / Headphones Image -->
+        <div class="img-box-product">
+            <img src="@Model.ImagePathes[0]" alt="@Model.Product.NameProduct" asp-append-version="true">
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+
+            <!-- Product Description -->
+            <div class="product-description">
+                <span>@Model.SectionName</span>
+                <h1>@Model.Product.NameProduct</h1>
+                <p>@Model.Product.Description</p>
+            </div>
+
+            <!-- Product Configuration -->
+            <div class="product-configuration">
+
+                <!-- Cable Configuration -->
+                <div class="cable-config">
+                    <span>Розмір</span>
+
+                    <div class="cable-choose">
+
+                        <button>S</button>
+                        <button>M</button>
+                        <button>L</button>
+
                     </div>
-                }
-        </section>
-    }
+
+                </div>
+            </div>
+
+            <!-- Product Pricing -->
+            <div class="product-price">
+                <span>@Model.Product.Price UAH</span>
+                <a href="#" class="cart-btn">Add to cart</a>
+            </div>
+        </div>
+    </section>
 
     <!-- info section -->
     <section class="info_section layout_padding2">
@@ -214,12 +223,12 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @section Scripts{
         <script>$('.carousel').on('slid.bs.carousel', function () {
-            $(".indicator-2 li").removeClass("active");
-            indicators = $(".carousel-indicators li.active").data("slide-to");
-            a = $(".indicator-2").find("[data-slide-to='" + indicators + "']").addClass("active");
-            console.log(indicators);
+                $(".indicator-2 li").removeClass("active");
+                indicators = $(".carousel-indicators li.active").data("slide-to");
+                a = $(".indicator-2").find("[data-slide-to='" + indicators + "']").addClass("active");
+                console.log(indicators);
 
-        })</script>
+            })</script>
     }
 
 

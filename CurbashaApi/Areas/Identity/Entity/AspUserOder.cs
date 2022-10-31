@@ -10,10 +10,12 @@ namespace CurbashaApi.Areas.Identity.Entity
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [DataType(DataType.Date)]
         public DateTime CreateAt { get; set; }
 
         public ICollection<AspOrderItem>? OrderItems { get; set; }
 
+        [Required]
         public IdentityUser User { get; set; }
     }
 }
