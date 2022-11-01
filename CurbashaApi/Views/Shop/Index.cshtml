@@ -18,7 +18,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Close</title>
+    <title>Shop</title>
 
     <!-- slider stylesheet -->
     <link rel="stylesheet" type="text/css"
@@ -45,15 +45,20 @@
                         @selection.SelectionName
                     </h2>
                 </div>
-
-                @foreach (var product in Model.Products.Where(prod => prod.SelectionId == selection.Id))
-                {
-                    <div class="brand_container layout_padding2">
+                <div class="brand_container layout_padding2">
+                    @foreach (var product in Model.Products.Where(prod => prod.SelectionId == selection.Id))
+                    {
                         <div class="box">
-                            <a asp-area="" asp-controller="Product" asp-action="Product" asp-route-id="@product.Id"
-                               asp-route-selectionName="@selection.SelectionName">
+                            <a asp-area="" asp-controller="Shop" asp-action="Product" asp-route-id="@product.Id">
+
+                                @*@if((product.CreatedAt - DateTime.Now).TotalDays < 30)
+                                <div class="new">
+                                    <h5>
+                                        New
+                                    </h5>
+                                </div>*@
                                 <div class="img-box">
-                                    <img src="~/images/shirt.png" alt="">
+                                    <img src="~/images/products/@selection.SelectionName.ToLower()-@product.Id.1.jpg" alt="">
                                 </div>
                                 <div class="detail-box">
                                     <h6 class="price">
@@ -65,8 +70,9 @@
                                 </div>
                             </a>
                         </div>
-                    </div>
-                }
+                    }
+                </div>
+            </div>
         </section>
     }
 
@@ -214,12 +220,12 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @section Scripts{
         <script>$('.carousel').on('slid.bs.carousel', function () {
-            $(".indicator-2 li").removeClass("active");
-            indicators = $(".carousel-indicators li.active").data("slide-to");
-            a = $(".indicator-2").find("[data-slide-to='" + indicators + "']").addClass("active");
-            console.log(indicators);
+                $(".indicator-2 li").removeClass("active");
+                indicators = $(".carousel-indicators li.active").data("slide-to");
+                a = $(".indicator-2").find("[data-slide-to='" + indicators + "']").addClass("active");
+                console.log(indicators);
 
-        })</script>
+            })</script>
     }
 
 

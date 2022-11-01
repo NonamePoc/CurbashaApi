@@ -1,9 +1,9 @@
 ﻿using System;
 using CurbashaApi.Areas.Identity.Entity;
 
-namespace CurbashaApi.Models
+namespace CurbashaApi.ViewModel
 {
-    public class ProductModel
+    public class ProductViewModel
     {
         public AspProduct? Product { get; set; }
 

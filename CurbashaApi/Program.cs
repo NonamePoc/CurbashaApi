@@ -3,6 +3,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Identity;
 using CurbashaApi.Data;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using CurbashaApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("CurbashaApiContextConnection") ?? throw new InvalidOperationException("Connection string 'CurbashaApiContextConnection' not found.");
@@ -29,6 +30,7 @@ using (var scope = app.Services.CreateScope())
 
     var context = services.GetRequiredService<CurbashaApiContext>();
     context.Database.Migrate();
+    SeedData.Initialize(services);
 }
 
 
