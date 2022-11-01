@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "avH2mEC6z7BrVW9hG+vpYcgEdx1jae+V3w/iRDeT9cc=",
+  "Hash": "EBGM/cI0iG/vckf4fBtCAyPYWE83hhGFc0bFtLi75ww=",
   "Source": "CurbashaApi",
   "BasePath": "_content/CurbashaApi",
   "Mode": "Default",
@@ -474,23 +474,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\location-white.png"
-    },
-    {
-      "Identity": "C:\\Curbash\\CurbashWebAPI\\CurbashaApi\\CurbashaApi\\wwwroot\\images\\Logo.png",
-      "SourceId": "CurbashaApi",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Curbash\\CurbashWebAPI\\CurbashaApi\\CurbashaApi\\wwwroot\\",
-      "BasePath": "_content/CurbashaApi",
-      "RelativePath": "images/Logo.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Logo.png"
     },
     {
       "Identity": "C:\\Curbash\\CurbashWebAPI\\CurbashaApi\\CurbashaApi\\wwwroot\\images\\mail.png",
