@@ -29,7 +29,6 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\images\products\" />
-    <Folder Include="Views\Product\" />
     <Folder Include="Views\Roles\" />
     <Folder Include="Views\Selections\" />
   </ItemGroup>
@@ -43,13 +42,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Views\Product\" />
     <None Remove="Views\Roles\" />
     <None Remove="Views\Selections\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\products\" />
-    <Content Remove="Views\Contact\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Views\Contact\Home">

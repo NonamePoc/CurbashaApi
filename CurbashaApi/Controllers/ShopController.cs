@@ -17,7 +17,7 @@ namespace CurbashaApi.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Shop()
         {
             var allProducts = _context.AspProducts.Select(p => p);
             var allSelections = _context.AspSelections.Select(s => s);

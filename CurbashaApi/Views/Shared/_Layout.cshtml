@@ -15,7 +15,7 @@
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-lg custom_nav-container">
                     <a class="navbar-brand" href="index.html">
-                        <img src="~/images/Logo.png" alt="" />
+                        <img src="images/logo.png" alt="" />
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,16 +25,16 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav  ">
                             <li class="nav-item active">
-                                <a class="nav-link" href="/Home/Index"> Home </a>
+                                <a class="nav-link" href="/Home/Home"> Home </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/Shop/Index">Shop </a>
+                                <a class="nav-link" href="/Shop/Shop">Shop </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/Home/Sections"> Sections </a>
+                                <a class="nav-link" href="/Furniture/Furniture"> Furniture </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/Home/Contact">Contact us</a>
+                                <a class="nav-link" href="/Contact/Contact">Contact us</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Index">Admin</a>
@@ -42,13 +42,13 @@
                         </ul>
                         <div class="user_option">
                             <a href="login.html" style="margin-right: 20px;">
-                                <img src="~/images/user.png" alt="">
+                                <img src="images/user.png" alt="">
                                 <span>
                                     Login
                                 </span>
                             </a>
                             <a href="cart.html">
-                                <img src="~/images/shopping-cart.png" alt="">
+                                <img src="images/shopping-cart.png" alt="">
                                 <span>
                                     Cart
                                 </span>
@@ -71,24 +71,23 @@
                             </button>
                         </div>
                     </div>
-                    <partial name="_LoginPartial"/>
+                    <partial name="_LoginPartial" />
                 </nav>
             </div>
         </header>
-        </div>>
+    </div>>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-   
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
-    <script type="text/javascript">
-        $(".owl-carousel").owlCarousel({
+    <script type="text/javascript">$(".owl-carousel").owlCarousel({
             loop: true,
             margin: 10,
             nav: true,
@@ -107,10 +106,8 @@
                 }
             }
 
-        });
-    </script>
-    <script>
-        var nav = $("#navbarSupportedContent");
+        });</script>
+    <script>var nav = $("#navbarSupportedContent");
         var btn = $(".custom_menu-btn");
         btn.click
         btn.click(function (e) {
@@ -118,17 +115,14 @@
             e.preventDefault();
             nav.toggleClass("lg_nav-toggle");
             document.querySelector(".custom_menu-btn").classList.toggle("menu_btn-style")
-        });
-    </script>
-    <script>
-        $('.carousel').on('slid.bs.carousel', function () {
+        });</script>
+    <script>$('.carousel').on('slid.bs.carousel', function () {
             $(".indicator-2 li").removeClass("active");
             indicators = $(".carousel-indicators li.active").data("slide-to");
             a = $(".indicator-2").find("[data-slide-to='" + indicators + "']").addClass("active");
             console.log(indicators);
 
-        })
-    </script>
+        })</script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
