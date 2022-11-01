@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Curbasha\\CurbashaWebApi\\CurbashaApi\\CurbashaApi\\CurbashaApi.csproj": {}
+    "C:\\Curbash\\CurbashWebAPI\\CurbashaApi\\CurbashaApi\\CurbashaApi.csproj": {}
   },
   "projects": {
-    "D:\\Curbasha\\CurbashaWebApi\\CurbashaApi\\CurbashaApi\\CurbashaApi.csproj": {
+    "C:\\Curbash\\CurbashWebAPI\\CurbashaApi\\CurbashaApi\\CurbashaApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Curbasha\\CurbashaWebApi\\CurbashaApi\\CurbashaApi\\CurbashaApi.csproj",
+        "projectUniqueName": "C:\\Curbash\\CurbashWebAPI\\CurbashaApi\\CurbashaApi\\CurbashaApi.csproj",
         "projectName": "CurbashaApi",
-        "projectPath": "D:\\Curbasha\\CurbashaWebApi\\CurbashaApi\\CurbashaApi\\CurbashaApi.csproj",
-        "packagesPath": "C:\\Users\\pavlo\\.nuget\\packages\\",
-        "outputPath": "D:\\Curbasha\\CurbashaWebApi\\CurbashaApi\\CurbashaApi\\obj\\",
+        "projectPath": "C:\\Curbash\\CurbashWebAPI\\CurbashaApi\\CurbashaApi\\CurbashaApi.csproj",
+        "packagesPath": "C:\\Users\\kosty\\.nuget\\packages\\",
+        "outputPath": "C:\\Curbash\\CurbashWebAPI\\CurbashaApi\\CurbashaApi\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\pavlo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kosty\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -98,7 +95,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -110,7 +108,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

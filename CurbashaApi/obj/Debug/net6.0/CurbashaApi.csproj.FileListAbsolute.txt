@@ -556,3 +556,7 @@ D:\Curbasha\CurbashaWebApi\CurbashaApi\CurbashaApi\bin\Debug\net6.0\Microsoft.Ex
 D:\Curbasha\CurbashaWebApi\CurbashaApi\CurbashaApi\bin\Debug\net6.0\MimeKit.dll
 D:\Curbasha\CurbashaWebApi\CurbashaApi\CurbashaApi\bin\Debug\net6.0\BouncyCastle.Crypto.dll
 D:\Curbasha\CurbashaWebApi\CurbashaApi\CurbashaApi\bin\Debug\net6.0\MailKit.dll
+C:\Curbash\CurbashWebAPI\CurbashaApi\CurbashaApi\bin\Debug\net6.0\MailKit.dll
+C:\Curbash\CurbashWebAPI\CurbashaApi\CurbashaApi\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Curbash\CurbashWebAPI\CurbashaApi\CurbashaApi\bin\Debug\net6.0\MimeKit.dll
+C:\Curbash\CurbashWebAPI\CurbashaApi\CurbashaApi\bin\Debug\net6.0\BouncyCastle.Crypto.dll

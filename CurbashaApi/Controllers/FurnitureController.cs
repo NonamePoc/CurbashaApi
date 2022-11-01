@@ -4,7 +4,7 @@ namespace CurbashaApi.Controllers
 {
     public class FurnitureController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Furniture()
         {
             return View();
         }

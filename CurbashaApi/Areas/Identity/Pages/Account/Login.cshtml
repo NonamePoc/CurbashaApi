@@ -1,85 +1,303 @@
 ﻿@page
 @model LoginModel
 
-@{
-    ViewData["Title"] = "Log in";
-}
 
-<h1>@ViewData["Title"]</h1>
-<div class="row">
-    <div class="col-md-4">
-        <section>
-            <form id="account" method="post">
-                <h2>Use a local account to log in.</h2>
-                <hr />
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-floating">
-                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
-                    <label asp-for="Input.Email" class="form-label"></label>
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
-                </div>
-                <div class="form-floating">
-                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
-                    <label asp-for="Input.Password" class="form-label"></label>
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div>
-                    <div class="checkbox">
-                        <label asp-for="Input.RememberMe" class="form-label">
-                            <input class="form-check-input" asp-for="Input.RememberMe" />
-                            @Html.DisplayNameFor(m => m.Input.RememberMe)
-                        </label>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Digitf</title>
+
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700&display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+</head>
+
+<body class="sub_page">
+    <div class="hero_area">
+        <!-- header section strats -->
+        <header class="header_section">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="images/logo.png" alt="" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav  ">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Home"> Home </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Shop/Shop">Shop </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Furniture/Furniture"> Furniture </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/ContactUs/ContactUs">Contact us</a>
+                            </li>
+                        </ul>
+                        <div class="user_option">
+                            <a asp-area="Identity" asp-page="/Account/Login" style="margin-right: 20px;">
+                                <img src="images/user.png" alt="">
+                                <span>
+                                    Login
+                                </span>
+                            </a>
+                            <a href="cart.html">
+                                <img src="images/shopping-cart.png" alt="">
+                                <span>
+                                    Cart
+                                </span>
+                            </a>
+
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
-                </div>
-                <div>
-                    <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                    </p>
-                    <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                    </p>
-                    <p>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                    </p>
-                </div>
-            </form>
-        </section>
-    </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h3>Use another service to log in.</h3>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
                     <div>
-                        <p>
-                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
-                            about setting up this ASP.NET application to support logging in via external services</a>.
-                        </p>
+                        <div class="custom_menu-btn ">
+                            <button>
+                                <span class=" s-1">
+
+                                </span>
+                                <span class="s-2">
+
+                                </span>
+                                <span class="s-3">
+
+                                </span>
+                            </button>
+                        </div>
                     </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+
+                </nav>
+            </div>
+        </header>
+        <!-- end header section -->
+    </div>
+
+
+
+    <!-- contact section -->
+
+    <section class="contact_section layout_padding">
+        <div class="container ">
+            <div class="heading_container" style="
+    justify-content: center;
+">
+                <h2 class="">
+                    Log In
+                </h2>
+            </div>
+
+        </div>
+        <div class="container">
+            <div class="row" style="
+    justify-content: center;
+">
+                <div class="col-md-6">
+                    <form action="">
                         <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            <input asp-for="Input.Email" placeholder="Email" />
+                        </div>
+                        <div>
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            <input asp-for="Input.Password" placeholder="Password" />                            
+                        </div>
+                        <div>
+                            <checkbox asp-for="Input.RememberMe" value="Remember me" >
+                        </div>
+                        <div class="d-flex " style="
+    justify-content: center;
+">
+                            <button>
+                                LOG IN
+                            </button>
+
                         </div>
                     </form>
-                }
-            }
-        </section>
-    </div>
-</div>
+                    <p style="text-align: center; padding-top: 20px; margin-right: 20px;">Or <a asp-area="Identity" asp-page="/Account/Register" style="color: #24d278">Sign Up</a></p>
+                </div>
 
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
+            </div>
+        </div>
+    </section>
+
+    <!-- end contact section -->
+    <!-- info section -->
+    <section class="info_section layout_padding2">
+        <div class="container">
+            <div class="info_logo">
+                <h2>
+                    Digitf
+                </h2>
+            </div>
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="info_contact">
+                        <h5>
+                            About Shop
+                        </h5>
+                        <div>
+                            <div class="img-box">
+                                <img src="images/location-white.png" width="18px" alt="">
+                            </div>
+                            <p>
+                                Address
+                            </p>
+                        </div>
+                        <div>
+                            <div class="img-box">
+                                <img src="images/telephone-white.png" width="12px" alt="">
+                            </div>
+                            <p>
+                                +01 1234567890
+                            </p>
+                        </div>
+                        <div>
+                            <div class="img-box">
+                                <img src="images/envelope-white.png" width="18px" alt="">
+                            </div>
+                            <p>
+                                demo@gmail.com
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="info_info">
+                        <h5>
+                            Informations
+                        </h5>
+                        <p>
+                            ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="info_insta">
+                        <h5>
+                            Instagram
+                        </h5>
+                        <div class="insta_container">
+                            <div>
+                                <a href="">
+                                    <div class="insta-box b-1">
+                                        <img src="images/i-1.jpg" alt="">
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="insta-box b-2">
+                                        <img src="images/i-2.jpg" alt="">
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="">
+                                    <div class="insta-box b-3">
+                                        <img src="images/i-3.jpg" alt="">
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="insta-box b-4">
+                                        <img src="images/i-4.jpg" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="">
+                                    <div class="insta-box b-3">
+                                        <img src="images/i-5.jpg" alt="">
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="insta-box b-4">
+                                        <img src="images/i-6.jpg" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="info_form ">
+                        <h5>
+                            Newsletter
+                        </h5>
+                        <form action="">
+                            <input type="email" placeholder="Enter your email">
+                            <button>
+                                Subscribe
+                            </button>
+                        </form>
+                        <div class="social_box">
+                            <a href="">
+                                <img src="images/fb.png" alt="">
+                            </a>
+                            <a href="">
+                                <img src="images/twitter.png" alt="">
+                            </a>
+                            <a href="">
+                                <img src="images/linkedin.png" alt="">
+                            </a>
+                            <a href="">
+                                <img src="images/youtube.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end info_section -->
+    <!-- footer section -->
+    <section class="container-fluid footer_section ">
+        <div class="container">
+            <p>
+                &copy; 2019 All Rights Reserved By
+                <a href="https://html.design/">Free Html Templates</a>
+            </p>
+        </div>
+    </section>
+    <!-- end  footer section -->
+   
+    
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+
+
+</body>
+
+</html>
