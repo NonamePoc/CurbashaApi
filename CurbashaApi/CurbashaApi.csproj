@@ -29,6 +29,7 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="Views\Product\" />
+    <Folder Include="wwwroot\images\products\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,5 +42,15 @@
 
   <ItemGroup>
     <None Remove="Views\Product\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\images\products\" />
+    <Content Remove="Views\Contact\Contact.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Views\Contact\Home">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
   </ItemGroup>
 </Project>

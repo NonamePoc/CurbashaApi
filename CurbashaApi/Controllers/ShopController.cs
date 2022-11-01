@@ -29,5 +29,31 @@ namespace CurbashaApi.Controllers
             };
             return View(shopVM);
         }
+
+        public IActionResult Product(int? id)
+        {
+            if (id == null)
+            {
+                return new StatusCodeResult(StatusCodes.Status400BadRequest);
+            }
+
+            var selectedProduct = _context.AspProducts.Find(id);
+            var selectedSection = _context.AspSelections.Find(selectedProduct.SelectionId);
+
+            if (selectedProduct == null)
+            {
+                return NotFound("Your request did not find.");
+            }
+            string[] imagePathes = new string[2];
+            imagePathes[0] = $"~/images/products/{selectedSection.SelectionName.ToLower()}-{id}.1.jpg";
+            imagePathes[1] = $"~/images/products/{selectedSection.SelectionName.ToLower()}-{id}.2.jpg";
+            ProductViewModel product = new ProductViewModel()
+            {
+                Product = selectedProduct,
+                SectionName = selectedSection.SelectionName,
+                ImagePathes = imagePathes
+            };
+            return View(product);
+        }
     }
 }

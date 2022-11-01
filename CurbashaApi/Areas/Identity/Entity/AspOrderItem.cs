@@ -15,7 +15,7 @@ namespace CurbashaApi.Areas.Identity.Entity
         
         public AspProduct Product { get; set; }
 
-        [StringLength(1)]
+        [StringLength(3)]
         public string Size { get; set; }
 
         [Required]
