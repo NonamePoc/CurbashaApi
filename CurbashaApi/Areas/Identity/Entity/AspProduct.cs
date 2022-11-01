@@ -19,10 +19,9 @@ namespace CurbashaApi.Areas.Identity.Entity
 
         public int SelectionId { get; set; }
 
-        public virtual AspSelections AspSelections { get; set; }
+        public AspSelections AspSelections { get; set; }
         
         [DataType(DataType.Currency)]
-        //[RegularExpression(@"^\d+.\d{0,2}$", ErrorMessage = "Has to be decimal with two decimal points")]
         //[Column(TypeName = "decimal(18, 2)")]
         public int Price { get; set; }
         

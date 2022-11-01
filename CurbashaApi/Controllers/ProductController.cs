@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using CurbashaApi.Areas.Identity.Entity;
 using CurbashaApi.Data;
 using CurbashaApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace CurbashaApi.Controllers
 {
+    //[Authorize(Roles = "Admin")]
     public class ProductController : Controller
     {
         private readonly CurbashaApiContext _context;
@@ -22,9 +25,14 @@ namespace CurbashaApi.Controllers
         }
 
         // GET: Product
-        public IActionResult Index()
+        public IActionResult Index(string id)
         {
+            string searchString = id;
             var products = _context.AspProducts.ToList();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(p => p.NameProduct.Contains(searchString)).ToList();
+            }
             return View(products);
         }
 
@@ -35,7 +43,7 @@ namespace CurbashaApi.Controllers
             {
                 return new StatusCodeResult(StatusCodes.Status400BadRequest);
             }
-            AspProduct? product = await _context.AspProducts.FirstAsync(p => p.Id == id);
+            AspProduct? product = await _context.AspProducts.FirstOrDefaultAsync(p => p.Id == id);
             if (product == null)
             {
                 return NotFound("Your request did not find.");
@@ -56,17 +64,17 @@ namespace CurbashaApi.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateAsync([Bind("Id,NameProduct,Description,Price,SelectionId")] AspProduct product)
+        public async Task<IActionResult> Create([Bind("Id,NameProduct,Description,SelectionId,Price")] AspProduct aspProduct)
         {
-            if (ModelState.IsValid)
+            aspProduct.AspSelections = _context.AspSelections.First(s => s.Id == aspProduct.SelectionId);
+            if (aspProduct != null)
             {
-                _context.AspProducts.Add(product);
+                _context.AspProducts.Add(aspProduct);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
-
-            ViewBag.SelectionId = new SelectList(_context.AspSelections, "Id", "SelectionName", product.SelectionId);
-            return View(product);
+            ViewBag.SelectionId = new SelectList(_context.AspSelections, "Id", "SelectionName", aspProduct.SelectionId);
+            return View(aspProduct);
         }
         #endregion
 
@@ -92,17 +100,18 @@ namespace CurbashaApi.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NameProduct,Price,Description,SelectionId")] AspProduct product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NameProduct,Description,SelectionId,Price")] AspProduct product)
         {
             if (id != product.Id)
             {
-                return NotFound("Your request did not valid.");
+                return NotFound();
             }
-            if (ModelState.IsValid)
+
+            if (product != null)
             {
                 try
                 {
-                    _context.Entry(product).State = EntityState.Modified;
+                    _context.Update(product);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -116,9 +125,10 @@ namespace CurbashaApi.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("Index");
+                ViewBag.SelectionId = new SelectList(_context.AspSelections, "Id", "SelectionName", product.SelectionId);
+                return RedirectToAction(nameof(Index));
             }
-            ViewBag.SelectionId = new SelectList(_context.AspSelections, "Id", "SelectionName", product.SelectionId);
+
             return View(product);
         }
         #endregion
@@ -131,7 +141,7 @@ namespace CurbashaApi.Controllers
             {
                 return new StatusCodeResult(StatusCodes.Status400BadRequest);
             }
-            AspProduct? product = await _context.AspProducts.FirstAsync(p => p.Id == id);
+            AspProduct? product = await _context.AspProducts.FirstOrDefaultAsync(p => p.Id == id);
             if (product == null)
             {
                 return NotFound("Your request did not find.");
@@ -140,14 +150,22 @@ namespace CurbashaApi.Controllers
         }
 
         // POST: Product/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpDelete, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            AspProduct product = await _context.AspProducts.FirstAsync(p => p.Id == id);
-            _context.AspProducts.Remove(product);
+            if (_context.AspProducts == null)
+            {
+                return Problem("Entity set 'CurbashaApiContext.AspProducts' is null.");
+            }
+            var product = await _context.AspProducts.FindAsync(id);
+            if (product != null)
+            {
+                _context.AspProducts.Remove(product);
+            }
+
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
         #endregion
 
