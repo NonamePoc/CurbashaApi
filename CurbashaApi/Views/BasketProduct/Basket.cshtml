@@ -1,8 +1,4 @@
-﻿@page
-@model CurbashaApi.Models.ContactModel
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -31,17 +27,17 @@
 
 <body class="sub_page">
     <div class="hero_area">
-    <!-- header section strats -->
-    <header class="header_section">
-        <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg custom_nav-container">
-                <a class="navbar-brand" href="/Home/Home">
-                    <img src="images/logo.png" alt="" />
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <!-- header section strats -->
+        <header class="header_section">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container">
+                    <a class="navbar-brand" href="/Home/Home">
+                        <img src="@Url.Content("~/images/logo.png")">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav  ">
@@ -60,13 +56,13 @@
                         </ul>
                         <div class="user_option">
                             <a asp-area="Identity" asp-page="/Account/Login" style="margin-right: 20px;">
-                                <img src="images/user.png" alt="">
+                                <img src="@Url.Content("~/images/user.png")" alt="">
                                 <span>
                                     Login
                                 </span>
                             </a>
                             <a asp-area="" asp-controller="BasketProduct" asp-action="Basket" style="margin-right: 20px;">
-                                <img src="images/shopping-cart.png" alt="">
+                                <img src="@Url.Content("~/images/shopping-cart.png")" alt="">
                                 <span>
                                     Cart
                                 </span>
@@ -74,74 +70,106 @@
 
                         </div>
                     </div>
-                <div>
-                    <div class="custom_menu-btn ">
-                        <button>
-                            <span class=" s-1">
-
-                            </span>
-                            <span class="s-2">
-
-                            </span>
-                            <span class="s-3">
-
-                            </span>
-                        </button>
-                    </div>
-                </div>
-
-            </nav>
-        </div>
-    </header>
-    </div>
-    <!-- contact section -->
-
-    <section class="contact_section layout_padding">
-        <div class="container ">
-            <div class="heading_container">
-                <h2 class="">
-                    Contact Us
-                </h2>
-            </div>
-
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <form onsubmit="sendEmail; reset(); return false;">
-                        <div>
-                            <input type="text" id="name" placeholder="Name" />
-                        </div>
-                        <div>
-                            <input type="email" id="email" placeholder="Email" />
-                        </div>
-                        <div>
-                            <input type="text" id="subject" placeholder="Subject" />
-                        </div>
-                        <div>
-                            <input type="text" id="msg" class="message-box" placeholder="Message" />
-                        </div>
-                        <div class="d-flex ">
+                    <div>
+                        <div class="custom_menu-btn ">
                             <button>
-                                SEND
+                                <span class=" s-1">
+
+                                </span>
+                                <span class="s-2">
+
+                                </span>
+                                <span class="s-3">
+
+                                </span>
                             </button>
                         </div>
-                    </form>
-                </div>
-                <div class="col-md-6">
-                    <div class="map_container">
-                        <div class="map-responsive">
-                            <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France"
-                                    width="600" height="300" frameborder="0" style="border:0; width: 100%; height:100%"
-                                    allowfullscreen></iframe>
+                    </div>
+
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <section class="cart-section">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-8 cart">
+                    <div class="title">
+                        <div class="row">
+                            <div class="col"><h4><b>Shopping Cart</b></h4></div>
+                            <div class="col align-self-center text-right text-muted">3 items</div>
                         </div>
                     </div>
+                    <div class="row border-top border-bottom">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">Shirt</div>
+                                <div class="row">Cotton T-shirt</div>
+                            </div>
+                            <div class="col">
+                                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                            </div>
+                            <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">Shirt</div>
+                                <div class="row">Cotton T-shirt</div>
+                            </div>
+                            <div class="col">
+                                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                            </div>
+                            <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    <div class="row border-top border-bottom">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/pHQ3xT3.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">Shirt</div>
+                                <div class="row">Cotton T-shirt</div>
+                            </div>
+                            <div class="col">
+                                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                            </div>
+                            <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    <div class="back-to-shop"><a href="/Shop/Shop">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+                </div>
+                <div class="col-md-4 summary">
+                    <div><h5><b>Summary</b></h5></div>
+                    <hr>
+                    <div class="row">
+                        <div class="col" style="padding-left:0;">ITEMS 3</div>
+                        <div class="col text-right">&euro; 132.00</div>
+                    </div>
+                    <form>
+                        <p>SHIPPING</p>
+                        <select>
+                            <option class="text-muted">Standard-Delivery- &euro;5.00</option>
+                            <option class="text-muted">Fast-Delivery- &euro;10.00</option>
+                        </select>
+                        <p>GIVE CODE</p>
+                        <input id="code" placeholder="Enter your code">
+                    </form>
+                    <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                        <div class="col">TOTAL PRICE</div>
+                        <div class="col text-right">&euro; 137.00</div>
+                    </div>
+                    <button class="btn">CHECKOUT</button>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- end contact section -->
+
     <!-- info section -->
     <section class="info_section layout_padding2">
         <div class="container">
@@ -282,22 +310,8 @@
         </div>
     </section>
     <!-- end  footer section -->
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script>
-        function sendEmail(){
-            Email.send({
-                Host: "smtp.gmail.com",
-                Username: "heshur.kostyantyn@student.uzhnu.edu.ua",
-                Password: "sayonaruk",
-                To: 'heshur.kostyantyn@student.uzhnu.edu.ua',
-                From: document.getElementById("email").value,
-                Subject: document.getElementById("subject").value,
-                Body: document.getElementById("msg").value
-            }).then(
-                message => alert(message)
-        };
-    </script>
 
 
 </body>
+
 </html>
