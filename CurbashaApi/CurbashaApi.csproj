@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\images\logo.png" />
+    <Content Remove="wwwroot\images\products\pants-10.1.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +33,8 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="Views\ProductAdmin\" />
+    <Folder Include="Views\SelectionsAdmin\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,4 +49,8 @@
     <Page Include="wwwroot\images\logo.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Views\ProductAdmin\" />
+    <None Remove="Views\SelectionsAdmin\" />
+  </ItemGroup>
 </Project>

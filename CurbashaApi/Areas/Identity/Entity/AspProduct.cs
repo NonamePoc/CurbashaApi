@@ -10,6 +10,8 @@ namespace CurbashaApi.Areas.Identity.Entity
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "Product name is required")]
+        [StringLength(60, MinimumLength = 3, ErrorMessage = "The maximum length must be upto 60 characters, minimum - 3")]
         public string? NameProduct { get; set; }
 
         public string? Description { get; set; }
@@ -18,9 +20,11 @@ namespace CurbashaApi.Areas.Identity.Entity
 
         public AspSelections AspSelections { get; set; }
 
+        [DataType(DataType.Currency)]
+        //[Column(TypeName = "decimal(18, 2)")]
         public int Price { get; set; }
-        
-        public List<AspOrderItem> OrderItems { get; set; }
-        
+
+        public virtual List<AspOrderItem> OrderItems { get; set; }
+
     }
 }

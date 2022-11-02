@@ -10,8 +10,11 @@ public class AspSelections
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
+    [Display(Name = "Selection")]
+    [Required(ErrorMessage = "Selection name is required")]
+    [StringLength(20, MinimumLength = 3, ErrorMessage = "The category name can be maximum 20 characters long, minimum - 3")]
     public string? SelectionName { get; set; }
 
-    public List<AspProduct> Products { get; set; }
-    
+    public virtual List<AspProduct> Products { get; set; }
+
 }

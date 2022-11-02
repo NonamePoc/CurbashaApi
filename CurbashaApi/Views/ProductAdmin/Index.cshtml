@@ -1,0 +1,63 @@
+﻿@model IEnumerable<CurbashaApi.Areas.Identity.Entity.AspProduct>
+
+@{
+    ViewBag.Title = "Admin Products View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Manage Product Catalogue</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Name: @Html.TextBox("SearchString") <br />
+        <input type="submit" value="Filter" />
+    </p>
+
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Section
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameProduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AspSelections.SelectionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameProduct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Photo", "Photo", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
