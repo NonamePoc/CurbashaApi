@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 2.5px;
+      }
+
+      .cls-2 {
+        font-family: Tarrget, Tarrget;
+        font-size: 127.59px;
+      }
+    </style>
+  </defs>
+  <text class="cls-2" transform="translate(50.18 551.79)"><tspan x="0" y="0">curbasha</tspan></text>
+  <g>
+    <rect class="cls-1" x="36.62" y="467.16" width="926.77" height="102.78"/>
+    <polyline class="cls-1" points="435.49 452.32 435.49 427.29 531.41 427.29 531.41 452.32 495.21 452.32 495.21 467.16"/>
+  </g>
+</svg>

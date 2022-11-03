@@ -9,6 +9,7 @@
   <ItemGroup>
     <Content Remove="wwwroot\images\logo.png" />
     <Content Remove="wwwroot\images\products\pants-10.1.jpg" />
+    <Content Remove="wwwroot\images\t-1.jpg" />
   </ItemGroup>
 
   <ItemGroup>
