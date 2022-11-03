@@ -19,8 +19,8 @@ namespace CurbashaApi.Controllers
 
         public async Task<IActionResult> Shop()
         {
-            var allProducts = _context.AspProducts.Select(p => p);
-            var allSelections = _context.AspSelections.Select(s => s);
+            var allProducts = _context.AspProducts.Where(p => p.IsActive == true);
+            var allSelections = _context.AspSelections.Where(s => s.IsActive == true);
 
             var shopVM = new ShopViewModel
             {
@@ -46,7 +46,10 @@ namespace CurbashaApi.Controllers
 
             var selectedSection = _context.AspSelections.FirstOrDefault(s => s.Id == selectedProduct.SelectionId);
 
-            
+            if (!selectedProduct.IsActive || !selectedSection.IsActive)
+            {
+                return RedirectToAction("Home", "Home");
+            }
             string[] imagePathes = new string[2];
             imagePathes[0] = $"~/images/products/{selectedSection.SelectionName.ToLower()}-{id}.1.jpg";
             imagePathes[1] = $"~/images/products/{selectedSection.SelectionName.ToLower()}-{id}.2.jpg";

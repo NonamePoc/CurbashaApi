@@ -51,7 +51,7 @@ namespace CurbashaApi.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NameProduct,Description,SelectionId,Price")] AspProduct aspProduct)
+        public async Task<IActionResult> Create([Bind("Id,NameProduct,Description,SelectionId,Price,IsActive")] AspProduct aspProduct)
         {
             aspProduct.AspSelections = _context.AspSelections.First(s => s.Id == aspProduct.SelectionId);
             
@@ -87,7 +87,7 @@ namespace CurbashaApi.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NameProduct,Description,SelectionId,Price")] AspProduct product, IFormFile formFile)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NameProduct,Description,SelectionId,Price,IsActive")] AspProduct product, IFormFile formFile)
         {
             if (id != product.Id)
             {

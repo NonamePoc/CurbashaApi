@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 
@@ -18,13 +19,17 @@ namespace CurbashaApi.Areas.Identity.Entity
 
         public int SelectionId { get; set; }
 
-        public AspSelections AspSelections { get; set; }
+        public virtual AspSelections AspSelections { get; set; }
 
         [DataType(DataType.Currency)]
-        //[Column(TypeName = "decimal(18, 2)")]
-        public int Price { get; set; }
+        [Column(TypeName = "decimal(18, 2)")]
+        public double Price { get; set; }
 
         public virtual List<AspOrderItem> OrderItems { get; set; }
+
+        [Required]
+        [DefaultValue(false)]
+        public bool IsActive { get; set; }
 
     }
 }

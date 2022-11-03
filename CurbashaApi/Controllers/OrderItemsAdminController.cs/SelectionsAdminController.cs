@@ -38,7 +38,7 @@ namespace CurbashaApi.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,SelectionName")] AspSelections aspSelection)
+        public async Task<IActionResult> Create([Bind("Id,SelectionName,IsActive")] AspSelections aspSelection)
         {
             if (aspSelection != null)
             {
@@ -76,14 +76,14 @@ namespace CurbashaApi.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,SelectionName")] AspSelections aspSelections)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,SelectionName,IsActive")] AspSelections aspSelections)
         {
             if (id != aspSelections.Id)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (aspSelections != null)
             {
                 try
                 {

@@ -24,8 +24,8 @@ namespace CurbashaApi.Areas.Identity.Entity
         public int Quantity { get; set; }
 
         [DataType(DataType.Currency)]
-        //[Column(TypeName = "decimal(18, 2)")]
-        public int Price { get; set; }
+        [Column(TypeName = "decimal(18, 2)")]
+        public double Price { get; set; }
 
         [Required]
         public string OrderId { get; set; }

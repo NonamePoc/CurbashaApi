@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 
@@ -16,5 +17,9 @@ public class AspSelections
     public string? SelectionName { get; set; }
 
     public virtual List<AspProduct> Products { get; set; }
+
+    [Required]
+    [DefaultValue(false)]
+    public bool IsActive { get; set; }
 
 }
