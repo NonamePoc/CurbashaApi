@@ -12,6 +12,8 @@ namespace CurbashaApi.Areas.Identity.Entity
 
         public DateTime CreateAt { get; set; }
 
+        public bool IsActive { get; set; }
+
         public ICollection<AspOrderItem>? OrderItems { get; set; }
 
         public IdentityUser User { get; set; }
