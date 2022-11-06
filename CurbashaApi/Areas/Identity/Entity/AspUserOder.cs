@@ -15,6 +15,7 @@ namespace CurbashaApi.Areas.Identity.Entity
         [DisplayName("CreatedAt")]
         public DateTime CreateAt { get; set; }
 
+
         [DefaultValue(true)]
         public bool IsActive { get; set; }
 

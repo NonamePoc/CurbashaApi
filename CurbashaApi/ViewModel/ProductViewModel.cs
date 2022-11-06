@@ -7,8 +7,11 @@ namespace CurbashaApi.ViewModel
     {
         public AspProduct? Product { get; set; }
 
-        public string? SelectionName { get; set; }
+        public string? SectionName { get; set; }
 
         public string[]? ImagePathes { get; set; }
+
+        public string Size { get; set; }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection.Metadata.Ecma335;
 using Microsoft.AspNetCore.Identity;
 
 namespace CurbashaApi.Areas.Identity.Entity
@@ -19,6 +20,8 @@ namespace CurbashaApi.Areas.Identity.Entity
         [Required(ErrorMessage = "Size is required")]
         [StringLength(5)]
         public string Size { get; set; }
+
+        public string ProductName { get; set; }
 
         [Required]
         [Range(1, 100, ErrorMessage = "The maximum quantity is 100, minimum - 1")]

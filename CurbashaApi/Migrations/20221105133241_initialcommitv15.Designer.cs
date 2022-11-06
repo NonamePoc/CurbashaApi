@@ -4,6 +4,7 @@ using CurbashaApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CurbashaApi.Migrations
 {
     [DbContext(typeof(CurbashaApiContext))]
-    partial class CurbashaApiContextModelSnapshot : ModelSnapshot
+    [Migration("20221105133241_initialcommitv15")]
+    partial class initialcommitv15
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,10 +44,6 @@ namespace CurbashaApi.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ProductName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
@@ -59,7 +57,7 @@ namespace CurbashaApi.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("AspOrderItems", (string)null);
+                    b.ToTable("AspOrderItems");
                 });
 
             modelBuilder.Entity("CurbashaApi.Areas.Identity.Entity.AspProduct", b =>
@@ -89,7 +87,7 @@ namespace CurbashaApi.Migrations
 
                     b.HasIndex("AspSelectionsId");
 
-                    b.ToTable("AspProducts", (string)null);
+                    b.ToTable("AspProducts");
                 });
 
             modelBuilder.Entity("CurbashaApi.Areas.Identity.Entity.AspSelections", b =>
@@ -105,7 +103,7 @@ namespace CurbashaApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AspSelections", (string)null);
+                    b.ToTable("AspSelections");
                 });
 
             modelBuilder.Entity("CurbashaApi.Areas.Identity.Entity.AspUserOrder", b =>
@@ -129,7 +127,7 @@ namespace CurbashaApi.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspUserOrder", (string)null);
+                    b.ToTable("AspUserOrder");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

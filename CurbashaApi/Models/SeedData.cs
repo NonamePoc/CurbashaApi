@@ -136,6 +136,7 @@ namespace CurbashaApi.Models
                         SelectionId = 3,
                         Price = 1199,
                         IsActive = true
+
                     },
                     new AspProduct
                     {
