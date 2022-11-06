@@ -21,13 +21,13 @@ namespace CurbashaApi.Areas.Identity.Entity
 
         public int SelectionId { get; set; }
 
-        public virtual AspSelections AspSelections { get; set; }
+        public /*virtual*/ AspSelections AspSelections { get; set; }
 
         [DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18, 2)")]
         public double Price { get; set; }
 
-        [NotMapped]
+        //[NotMapped]
         public List<AspOrderItem> OrderItems { get; set; }
 
         [Required]

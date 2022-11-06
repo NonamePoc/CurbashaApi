@@ -20,9 +20,18 @@ namespace CurbashaApi.Models
                     return;
                 }
                 context.AspSelections.AddRange(
-                    new AspSelections { SelectionName = "Shirts"},
-                    new AspSelections { SelectionName = "Sweatshirts" },
-                    new AspSelections { SelectionName = "Pants" }
+                    new AspSelections {
+                        SelectionName = "Shirts",
+                        IsActive = true
+                    },
+                    new AspSelections {
+                        SelectionName = "Sweatshirts",
+                        IsActive = true
+                    },
+                    new AspSelections {
+                        SelectionName = "Pants",
+                        IsActive = true
+                    }
                 );
                 context.SaveChanges();
 
