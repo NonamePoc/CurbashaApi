@@ -1309,6 +1309,32 @@ a:focus {
     text-align: center;
 }
 
+.plus_minus {
+    display: flex;
+    align-items: center;
+    width: 20%;
+}
+
+.qty {
+    height: 30px;
+    margin: 0 !important;
+    background: none !important;
+    width: 50px !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.plus, .minus {
+    background: none !important;
+    width: auto !important;
+    border: none !important;
+    margin: 0 !important;
+}
+
 /* Responsive */
 @media (max-width: 940px) {
   .container {

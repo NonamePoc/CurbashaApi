@@ -18,7 +18,7 @@ namespace CurbashaApi.Areas.Identity.Entity
 
         public AspSelections AspSelections { get; set; }
 
-        public int Price { get; set; }
+        public double Price { get; set; }
         
         public List<AspOrderItem> OrderItems { get; set; }
         
