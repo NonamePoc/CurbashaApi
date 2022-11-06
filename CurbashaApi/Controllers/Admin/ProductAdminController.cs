@@ -19,7 +19,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CurbashaApi.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class ProductAdminController : Controller
     {
         private readonly CurbashaApiContext _context;
@@ -34,7 +34,7 @@ namespace CurbashaApi.Controllers
         // GET: /ProductAdmin/Index
         public IActionResult Index()
         {
-            var products = _context.AspProducts.ToList(); 
+            var products = _context.AspProducts.ToList();
             return View(products);
         }
 
@@ -54,8 +54,9 @@ namespace CurbashaApi.Controllers
         public async Task<IActionResult> Create([Bind("Id,NameProduct,Description,SelectionId,Price,IsActive")] AspProduct aspProduct)
         {
             aspProduct.AspSelections = _context.AspSelections.First(s => s.Id == aspProduct.SelectionId);
-            
-            if (aspProduct != null) {
+
+            if (aspProduct != null)
+            {
                 _context.AspProducts.Add(aspProduct);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -222,7 +223,7 @@ namespace CurbashaApi.Controllers
         [HttpPost]
         private string ProcessUploadedFile(string ImagePath, IFormFile formFile)
         {
-            
+
             try
             {
                 Guid guid = Guid.NewGuid();

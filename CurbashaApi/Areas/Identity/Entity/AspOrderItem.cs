@@ -13,10 +13,11 @@ namespace CurbashaApi.Areas.Identity.Entity
         [Required(ErrorMessage = "Product is required")]
         public int ProductId { get; set; }
 
+        //[NotMapped]
         public virtual AspProduct Product { get; set; }
 
         [Required(ErrorMessage = "Size is required")]
-        [StringLength(3)]
+        [StringLength(5)]
         public string Size { get; set; }
 
         [Required]
@@ -28,6 +29,6 @@ namespace CurbashaApi.Areas.Identity.Entity
         public double Price { get; set; }
 
         [Required]
-        public string OrderId { get; set; }
+        public int OrderId { get; set; }
     }
 }

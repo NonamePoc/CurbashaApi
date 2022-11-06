@@ -56,7 +56,7 @@ namespace CurbashaApi.Controllers
             ProductViewModel product = new ProductViewModel()
             {
                 Product = selectedProduct,
-                SectionName = selectedSection.SelectionName,
+                SelectionName = selectedSection.SelectionName,
                 ImagePathes = imagePathes
             };
             return View(product);

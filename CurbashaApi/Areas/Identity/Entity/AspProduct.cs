@@ -15,6 +15,8 @@ namespace CurbashaApi.Areas.Identity.Entity
         [StringLength(60, MinimumLength = 3, ErrorMessage = "The maximum length must be upto 60 characters, minimum - 3")]
         public string? NameProduct { get; set; }
 
+        [Column(TypeName = "ntext")]
+        [StringLength(500, ErrorMessage = "The maximum length must be upto 500 characters")]
         public string? Description { get; set; }
 
         public int SelectionId { get; set; }
@@ -25,7 +27,8 @@ namespace CurbashaApi.Areas.Identity.Entity
         [Column(TypeName = "decimal(18, 2)")]
         public double Price { get; set; }
 
-        public virtual List<AspOrderItem> OrderItems { get; set; }
+        [NotMapped]
+        public List<AspOrderItem> OrderItems { get; set; }
 
         [Required]
         [DefaultValue(false)]

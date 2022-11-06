@@ -20,7 +20,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>()
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddRazorPages();
+
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation(); 
 
 var app = builder.Build();
 

@@ -10,7 +10,7 @@ using CurbashaApi.Data;
 
 namespace CurbashaApi.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class OrderItemsAdminController : Controller
     {
         private readonly CurbashaApiContext _context;

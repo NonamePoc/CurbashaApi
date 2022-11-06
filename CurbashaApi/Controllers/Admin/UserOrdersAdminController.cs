@@ -7,10 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CurbashaApi.Areas.Identity.Entity;
 using CurbashaApi.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CurbashaApi.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class UserOrdersAdminController : Controller
     {
         private readonly CurbashaApiContext _context;
@@ -24,6 +25,12 @@ namespace CurbashaApi.Controllers
         public async Task<IActionResult> Index()
         {
               return View(await _context.AspUserOrder.ToListAsync());
+        }
+
+        // GET: UserOrdersAdmin/Index/IdUser
+        public async Task<IActionResult> Index(string id)
+        {
+            return View(await _context.AspUserOrder.Where(o => o.User.Id == id).ToListAsync());
         }
 
         // GET: UserOrdersAdmin/Details/5
@@ -41,79 +48,6 @@ namespace CurbashaApi.Controllers
                 return NotFound();
             }
 
-            return View(aspUserOrder);
-        }
-
-        // GET: UserOrdersAdmin/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: UserOrdersAdmin/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CreateAt,IsActive")] AspUserOrder aspUserOrder)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(aspUserOrder);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(aspUserOrder);
-        }
-
-        // GET: UserOrdersAdmin/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.AspUserOrder == null)
-            {
-                return NotFound();
-            }
-
-            var aspUserOrder = await _context.AspUserOrder.FindAsync(id);
-            if (aspUserOrder == null)
-            {
-                return NotFound();
-            }
-            return View(aspUserOrder);
-        }
-
-        // POST: UserOrdersAdmin/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CreateAt,IsActive")] AspUserOrder aspUserOrder)
-        {
-            if (id != aspUserOrder.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(aspUserOrder);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AspUserOrderExists(aspUserOrder.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
             return View(aspUserOrder);
         }
 
@@ -147,6 +81,8 @@ namespace CurbashaApi.Controllers
             var aspUserOrder = await _context.AspUserOrder.FindAsync(id);
             if (aspUserOrder != null)
             {
+                var activeProductItems = _context.AspOrderItems.Where(ap => ap.OrderId == aspUserOrder.Id);
+                _context.AspOrderItems.RemoveRange(activeProductItems);
                 _context.AspUserOrder.Remove(aspUserOrder);
             }
             

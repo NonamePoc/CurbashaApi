@@ -8,10 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using CurbashaApi.Areas.Identity.Entity;
 using CurbashaApi.Data;
 using Microsoft.AspNetCore.Authorization;
+using System.Dynamic;
 
 namespace CurbashaApi.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class SelectionsAdminController : Controller
     {
         private readonly CurbashaApiContext _context;
@@ -23,8 +24,9 @@ namespace CurbashaApi.Controllers
 
         // GET: SelectionsAdmin/Index
         public async Task<IActionResult> Index()
-        {
-              return View(await _context.AspSelections.ToListAsync());
+        {            
+            //ViewBag.ProductCount = _context.AspProducts.GroupBy(p => p.SelectionId).Select(g => new { Id = g.Key, Count = g.Count() });
+            return View(await _context.AspSelections.ToListAsync());
         }
 
         // GET: SelectionsAdmin/Create

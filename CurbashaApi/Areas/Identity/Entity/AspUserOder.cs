@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 
@@ -11,10 +12,13 @@ namespace CurbashaApi.Areas.Identity.Entity
         public int Id { get; set; }
 
         [DataType(DataType.Date)]
+        [DisplayName("CreatedAt")]
         public DateTime CreateAt { get; set; }
 
+        [DefaultValue(true)]
         public bool IsActive { get; set; }
 
+        //[NotMapped]
         public ICollection<AspOrderItem>? OrderItems { get; set; }
 
         [Required(ErrorMessage = "Choose user to create order")]

@@ -57,7 +57,7 @@ namespace CurbashaApi.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("AspOrderItems");
+                    b.ToTable("AspOrderItems", (string)null);
                 });
 
             modelBuilder.Entity("CurbashaApi.Areas.Identity.Entity.AspProduct", b =>
@@ -87,7 +87,7 @@ namespace CurbashaApi.Migrations
 
                     b.HasIndex("AspSelectionsId");
 
-                    b.ToTable("AspProducts");
+                    b.ToTable("AspProducts", (string)null);
                 });
 
             modelBuilder.Entity("CurbashaApi.Areas.Identity.Entity.AspSelections", b =>
@@ -103,7 +103,7 @@ namespace CurbashaApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AspSelections");
+                    b.ToTable("AspSelections", (string)null);
                 });
 
             modelBuilder.Entity("CurbashaApi.Areas.Identity.Entity.AspUserOrder", b =>
@@ -124,7 +124,7 @@ namespace CurbashaApi.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspUserOrder");
+                    b.ToTable("AspUserOrder", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
