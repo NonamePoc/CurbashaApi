@@ -16,7 +16,7 @@ public class AspSelections
     [StringLength(20, MinimumLength = 3, ErrorMessage = "The category name can be maximum 20 characters long, minimum - 3")]
     public string? SelectionName { get; set; }
 
-    public virtual List<AspProduct> Products { get; set; }
+    public /*virtual*/ List<AspProduct> Products { get; set; }
 
     [Required]
     [DefaultValue(false)]

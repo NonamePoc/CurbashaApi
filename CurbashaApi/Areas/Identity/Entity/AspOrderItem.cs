@@ -15,7 +15,7 @@ namespace CurbashaApi.Areas.Identity.Entity
         public int ProductId { get; set; }
 
         //[NotMapped]
-        public virtual AspProduct Product { get; set; }
+        public AspProduct Product { get; set; }
 
         [Required(ErrorMessage = "Size is required")]
         [StringLength(5)]

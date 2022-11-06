@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CurbashaApi.Areas.Identity.Entity;
 using CurbashaApi.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CurbashaApi.Controllers
 {

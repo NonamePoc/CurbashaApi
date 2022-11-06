@@ -22,7 +22,7 @@ namespace CurbashaApi.Areas.Identity.Entity
         //[NotMapped]
         public ICollection<AspOrderItem>? OrderItems { get; set; }
 
-        [Required(ErrorMessage = "Choose user to create order")]
+        //[Required(ErrorMessage = "Choose user to create order")]
         public IdentityUser User { get; set; }
     }
 }
