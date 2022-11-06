@@ -3,6 +3,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Identity;
 using CurbashaApi.Data;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using CurbashaApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("CurbashaApiContextConnection") ?? throw new InvalidOperationException("Connection string 'CurbashaApiContextConnection' not found.");
@@ -17,9 +18,11 @@ builder.Services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>()
 
 
 
+
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddRazorPages();
+
 
 var app = builder.Build();
 
@@ -29,6 +32,7 @@ using (var scope = app.Services.CreateScope())
 
     var context = services.GetRequiredService<CurbashaApiContext>();
     context.Database.Migrate();
+    SeedData.Initialize(services);
 }
 
 
