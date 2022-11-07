@@ -26,7 +26,11 @@ namespace CurbashaApi.Controllers
         }
 
         // GET: UsersAdmin/Index
-        public IActionResult Index() => View(_userManager.Users.ToList());
+        public IActionResult Index()
+        {
+            ViewBag.roles = _roleManager.Roles.ToList();
+            return View(_userManager.Users.ToList());
+        }
 
         // GET: UsersAdmin/Delete/5
         public async Task<IActionResult> Delete(string? id)

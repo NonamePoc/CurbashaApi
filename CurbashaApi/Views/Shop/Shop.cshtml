@@ -93,8 +93,11 @@
                                         </h5>
                                     </div>*@
                                 <div class="img-box">
-                                    <img src="~/images/products/@selection.SelectionName.ToLower()-@product.Id.1.jpg" alt="">
-                                </div>
+                                    @if (System.IO.File.Exists($"wwwroot/images/products/{@product.Id}.1.jpg"))
+                                        {
+                                        <img src="~/images/products/@product.Id.1.jpg" alt="">
+                                        }
+                                    </div>
                                 <div class="detail-box">
                                     <h6 class="price">
                                         @product.Price UAH

@@ -35,6 +35,7 @@ namespace CurbashaApi.Controllers
         public IActionResult Index()
         {
             var products = _context.AspProducts.ToList();
+            ViewBag.Sections = _context.AspSelections.Select(p => p).ToList();
             return View(products);
         }
 
@@ -199,9 +200,8 @@ namespace CurbashaApi.Controllers
             {
                 if (IsImage(formFile))
                 {
-                    string sectionName = _context.AspSelections.FirstOrDefault(s => s.Id == product.SelectionId).SelectionName;
                     var ImagePath = Path.Combine(_environment.WebRootPath, "images", "products",
-                        $"{sectionName.ToLower()}-{product.Id}.1.jpg");
+                        $"{product.Id}.1.jpg");
                     if (System.IO.File.Exists(ImagePath))
                     {
                         DeleteImageFromWWWRootFolder(product);
@@ -239,11 +239,8 @@ namespace CurbashaApi.Controllers
 
         private void DeleteImageFromWWWRootFolder(AspProduct product)
         {
-            string sectionName = _context.AspSelections.FirstOrDefault(s => s.Id == product.SelectionId).SelectionName;
-            //var CurrentImage = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "products",
-            //    $"{sectionName.ToLower()}-{product.Id}.1.jpg");
             var CurrentImage = Path.Combine(_environment.WebRootPath, "images", "products",
-                $"{sectionName.ToLower()}-{product.Id}.1.jpg");
+                $"{product.Id}.1.jpg");
             if (System.IO.File.Exists(CurrentImage))
             {
                 System.IO.File.Delete(CurrentImage);
@@ -253,7 +250,9 @@ namespace CurbashaApi.Controllers
         private bool IsImage(IFormFile formFile)
         {
             var imageTypes = new string[] {
-                    "image/jpeg"
+                    "image/jpg",
+                    "image/jpeg",
+                    "image/png"
                 };
             if (formFile == null || formFile.Length == 0)
             {

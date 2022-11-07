@@ -4,6 +4,7 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var userName = ViewBag.userNames as IEnumerable<IdentityUser>;
 }
 
 
@@ -41,8 +42,8 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.User.UserName)
+                                <td>                                    
+                                    @userName.FirstOrDefault(u => item.User.Id.Equals(u.Id))
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.CreateAt)

@@ -24,8 +24,8 @@ namespace CurbashaApi.Controllers
 
         // GET: SelectionsAdmin/Index
         public async Task<IActionResult> Index()
-        {            
-            //ViewBag.ProductCount = _context.AspProducts.GroupBy(p => p.SelectionId).Select(g => new { Id = g.Key, Count = g.Count() });
+        {
+            ViewBag.Products = _context.AspProducts.Select(p => p).ToList();
             return View(await _context.AspSelections.ToListAsync());
         }
 

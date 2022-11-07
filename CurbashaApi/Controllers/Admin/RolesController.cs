@@ -90,7 +90,7 @@ namespace CurbashaApi.Controllers
 
                 await _userManager.RemoveFromRolesAsync(user, removedRoles);
 
-                return RedirectToAction("Index", "~Admin/UsersAdmin");
+                return RedirectToAction("Index", "UsersAdmin");
             }
 
             return NotFound();

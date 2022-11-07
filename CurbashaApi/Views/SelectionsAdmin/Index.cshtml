@@ -2,6 +2,7 @@
 
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var products = ViewBag.Products as IEnumerable<CurbashaApi.Areas.Identity.Entity.AspProduct>;
 }
 
 <!DOCTYPE html>
@@ -45,7 +46,7 @@
                                     @Html.DisplayFor(modelItem => item.IsActive)
                                 </td>
                                 <td>
-                                    count 
+                                    @products.Where(p => p.SelectionId == item.Id).Count()
                                 </td>
                                 <td>
                                     <a href="@Url.Action("Edit", "SelectionsAdmin", new { id = item.Id })">

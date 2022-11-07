@@ -2,6 +2,7 @@
 
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var sections = ViewBag.Sections as IEnumerable<CurbashaApi.Areas.Identity.Entity.AspSelections>;
 }
 
 <!DOCTYPE html>
@@ -28,6 +29,9 @@
                                 Selection
                             </th>
                             <th>
+                                Photo
+                            </th>
+                            <th>
                                 @Html.DisplayNameFor(model => model.Price)
                             </th>
                             <th>
@@ -48,7 +52,13 @@
                                     @Html.DisplayFor(modelItem => item.NameProduct)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.AspSelections)
+                                    @sections.FirstOrDefault(s => s.Id == item.SelectionId).SelectionName
+                                </td>
+                                <td>
+                                    @if (System.IO.File.Exists($"wwwroot/images/products/{@item.Id}.1.jpg"))
+                                        {
+                                    <img src="~/images/products/@item.Id.1.jpg" width="50" height="70"/>
+                                        }
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Price)
@@ -60,12 +70,12 @@
                                     @Html.DisplayFor(modelItem => item.IsActive)
                                 </td>
                                 <td>
-                                    <a href="@Url.Action("Edit", "ProductAdmin", new { id = item.Id })" >
+                                    <a href="@Url.Action("Edit", "ProductAdmin", new { id = item.Id })">
                                         <i class="btn btn btn-info btn-sm">Edit</i>
-                                    </a> 
+                                    </a>
                                     <a href="@Url.Action("Photo", "ProductAdmin", new { id = item.Id })">
                                         <i class="btn btn-warning btn-sm my-1">Photo</i>
-                                    </a> 
+                                    </a>
                                     <a href="@Url.Action("Delete", "ProductAdmin", new { id = item.Id })">
                                         <i class="btn btn-danger btn-sm">Delete</i>
                                     </a>

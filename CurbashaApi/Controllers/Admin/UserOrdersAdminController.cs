@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using CurbashaApi.Areas.Identity.Entity;
 using CurbashaApi.Data;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace CurbashaApi.Controllers
 {
@@ -15,22 +16,26 @@ namespace CurbashaApi.Controllers
     public class UserOrdersAdminController : Controller
     {
         private readonly CurbashaApiContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public UserOrdersAdminController(CurbashaApiContext context)
+        public UserOrdersAdminController(CurbashaApiContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: UserOrdersAdmin/Index
         public async Task<IActionResult> Index()
         {
-              return View(await _context.AspUserOrder.ToListAsync());
+            ViewBag.userNames = _userManager.Users.ToList();
+            return View(await _context.AspUserOrder.ToListAsync());
         }
 
-        // GET: UserOrdersAdmin/Index/IdUser
-        public async Task<IActionResult> Index(string id)
+        // GET: UserOrdersAdmin/User/IdUser
+        public async Task<IActionResult> User(string id)
         {
-            return View(await _context.AspUserOrder.Where(o => o.User.Id == id).ToListAsync());
+            ViewBag.userNames = _userManager.Users.ToList();
+            return View("Index", await _context.AspUserOrder.Where(o => o.User.Id == id).ToListAsync());
         }
 
         // GET: UserOrdersAdmin/Details/5
@@ -47,7 +52,7 @@ namespace CurbashaApi.Controllers
             {
                 return NotFound();
             }
-
+            ViewBag.SelectedItems = _context.AspOrderItems.Where(o => o.OrderId == id).ToList();
             return View(aspUserOrder);
         }
 

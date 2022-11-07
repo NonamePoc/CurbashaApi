@@ -56,8 +56,8 @@ namespace CurbashaApi.Controllers
                 return RedirectToAction("Home", "Home");
             }
             string[] imagePathes = new string[2];
-            imagePathes[0] = $"~/images/products/{selectedSection.SelectionName.ToLower()}-{id}.1.jpg";
-            imagePathes[1] = $"~/images/products/{selectedSection.SelectionName.ToLower()}-{id}.2.jpg";
+            imagePathes[0] = $"~/images/products/{id}.1.jpg";
+            imagePathes[1] = $"~/images/products/{id}.2.jpg";
             ProductViewModel product = new ProductViewModel()
             {
                 Product = selectedProduct,
@@ -103,7 +103,7 @@ namespace CurbashaApi.Controllers
                         Quantity = 1,
                         Price = selectedProduct.Price,
                         Size = size,
-                        OrderId = 2,
+                        OrderId = delivery.Id,
                         Product = selectedProduct,
                         ProductName = selectedProduct.NameProduct,
 
@@ -113,7 +113,7 @@ namespace CurbashaApi.Controllers
                 }
                 else
                 {
-                    _context.AspOrderItems.FirstOrDefault(i => i.ProductId == id).Quantity++;
+                    _context.AspOrderItems.FirstOrDefault(i => i.ProductId == id && i.OrderId == delivery.Id).Quantity++;
                     _context.SaveChanges();
                 }
 
