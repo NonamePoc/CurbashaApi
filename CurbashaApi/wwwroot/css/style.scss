@@ -990,4 +990,9 @@ a:focus {
   transform: rotate(-45deg) translate(7px, -10px);
 }
 
+nav.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
 // end navbar slide toggle style

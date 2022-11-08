@@ -37,9 +37,12 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="Views\ProductAdmin\" />
-    <Folder Include="Views\SelectionsAdmin\" />
     <Folder Include="wwwroot\Admin\" />
+    <Folder Include="Views\Admin\" />
+    <Folder Include="Views\ProductAdmin\" />
+    <Folder Include="Views\Roles\" />
+    <Folder Include="Views\SelectionsAdmin\" />
+    <Folder Include="Views\UserOrdersAdmin\" />
     <Folder Include="Views\UsersAdmin\" />
   </ItemGroup>
 
@@ -56,9 +59,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Views\ProductAdmin\" />
-    <None Remove="Views\SelectionsAdmin\" />
     <None Remove="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" />
+    <None Remove="Views\Admin\" />
+    <None Remove="Views\ProductAdmin\" />
+    <None Remove="Views\Roles\" />
+    <None Remove="Views\SelectionsAdmin\" />
+    <None Remove="Views\UserOrdersAdmin\" />
     <None Remove="Views\UsersAdmin\" />
   </ItemGroup>
 </Project>

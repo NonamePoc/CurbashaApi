@@ -73,12 +73,12 @@ namespace CurbashaApi.Controllers
         {
             if (id == null)
             {
-                return new StatusCodeResult(StatusCodes.Status400BadRequest);
+                return RedirectToAction("Error404", "Admin");
             }
-            AspProduct? product = await _context.AspProducts.FirstAsync(p => p.Id == id);
+            AspProduct? product = await _context.AspProducts.FirstOrDefaultAsync(p => p.Id == id);
             if (product == null)
             {
-                return NotFound("Your request did not find.");
+                return RedirectToAction("Error404", "Admin");
             }
             ViewBag.SelectionId = new SelectList(_context.AspSelections, "Id", "SelectionName", product.SelectionId);
             return View(product);
@@ -93,7 +93,7 @@ namespace CurbashaApi.Controllers
         {
             if (id != product.Id)
             {
-                return NotFound();
+                return RedirectToAction("Error404", "Admin");
             }
 
             if (product != null)
@@ -107,7 +107,7 @@ namespace CurbashaApi.Controllers
                 {
                     if (!ProductExists(product.Id))
                     {
-                        return NotFound();
+                        return RedirectToAction("Error404", "Admin");
                     }
                     else
                     {
@@ -128,12 +128,12 @@ namespace CurbashaApi.Controllers
         {
             if (id == null)
             {
-                return new StatusCodeResult(StatusCodes.Status400BadRequest);
+                return RedirectToAction("Error404", "Admin");
             }
             AspProduct? product = await _context.AspProducts.FirstOrDefaultAsync(p => p.Id == id);
             if (product == null)
             {
-                return NotFound("Your request did not find.");
+                return RedirectToAction("Error404", "Admin");
             }
             return View(product);
         }
@@ -173,12 +173,12 @@ namespace CurbashaApi.Controllers
         {
             if (id == null)
             {
-                return new StatusCodeResult(StatusCodes.Status400BadRequest);
+                return RedirectToAction("Error404", "Admin");
             }
             AspProduct? product = await _context.AspProducts.FirstAsync(p => p.Id == id);
             if (product == null)
             {
-                return NotFound("Your request did not find.");
+                return RedirectToAction("Error404", "Admin");
             }
             ViewBag.SelectionId = new SelectList(_context.AspSelections, "Id", "SelectionName", product.SelectionId);
             return View(product);
@@ -193,7 +193,7 @@ namespace CurbashaApi.Controllers
         {
             if (id != product.Id)
             {
-                return NotFound();
+                return RedirectToAction("Error404", "Admin");
             }
             product = await _context.AspProducts.FirstAsync(p => p.Id == id);
             if (product != null)

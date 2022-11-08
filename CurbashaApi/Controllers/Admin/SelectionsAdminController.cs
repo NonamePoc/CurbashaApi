@@ -62,13 +62,13 @@ namespace CurbashaApi.Controllers
         {
             if (id == null || _context.AspSelections == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404", "Admin");
             }
 
             var aspSelections = await _context.AspSelections.FindAsync(id);
             if (aspSelections == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404", "Admin");
             }
             return View(aspSelections);
         }
@@ -82,7 +82,7 @@ namespace CurbashaApi.Controllers
         {
             if (id != aspSelections.Id)
             {
-                return NotFound();
+                return RedirectToAction("Error404", "Admin");
             }
 
             if (aspSelections != null)
@@ -96,7 +96,7 @@ namespace CurbashaApi.Controllers
                 {
                     if (!AspSelectionsExists(aspSelections.Id))
                     {
-                        return NotFound();
+                        return RedirectToAction("Error404", "Admin");
                     }
                     else
                     {
@@ -113,14 +113,14 @@ namespace CurbashaApi.Controllers
         {
             if (id == null || _context.AspSelections == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404", "Admin");
             }
 
             var aspSelections = await _context.AspSelections
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (aspSelections == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404", "Admin");
             }
 
             return View(aspSelections);

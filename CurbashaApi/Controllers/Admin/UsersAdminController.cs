@@ -37,13 +37,13 @@ namespace CurbashaApi.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404", "Admin");
             }
 
             var user = await _userManager.FindByIdAsync(id);
             if (user == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404", "Admin");
             }
 
             return View(user);

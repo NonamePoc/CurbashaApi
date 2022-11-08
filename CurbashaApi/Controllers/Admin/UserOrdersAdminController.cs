@@ -43,14 +43,14 @@ namespace CurbashaApi.Controllers
         {
             if (id == null || _context.AspUserOrder == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404", "Admin");
             }
 
             var aspUserOrder = await _context.AspUserOrder
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (aspUserOrder == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404", "Admin");
             }
             ViewBag.SelectedItems = _context.AspOrderItems.Where(o => o.OrderId == id).ToList();
             return View(aspUserOrder);
@@ -61,14 +61,14 @@ namespace CurbashaApi.Controllers
         {
             if (id == null || _context.AspUserOrder == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404", "Admin");
             }
 
             var aspUserOrder = await _context.AspUserOrder
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (aspUserOrder == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404", "Admin");
             }
 
             return View(aspUserOrder);
