@@ -12,5 +12,6 @@ namespace CurbashaApi.ViewModel
         public string[]? ImagePathes { get; set; }
 
         public string Size { get; set; }
+
     }
 }

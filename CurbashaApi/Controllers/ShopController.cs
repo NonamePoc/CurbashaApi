@@ -8,6 +8,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
 
+
 namespace CurbashaApi.Controllers
 {
     public class ShopController : Controller
@@ -19,12 +20,11 @@ namespace CurbashaApi.Controllers
             _context = context;
         }
 
-        [HttpGet]
+
         public async Task<IActionResult> Shop()
         {
-            
-            var allProducts = _context.AspProducts.Select(p => p);
-            var allSelections = _context.AspSelections.Select(s => s);
+            var allProducts = _context.AspProducts.Where(p => p.IsActive == true);
+            var allSelections = _context.AspSelections.Where(s => s.IsActive == true);
 
             var shopVM = new ShopViewModel
             {
@@ -34,9 +34,7 @@ namespace CurbashaApi.Controllers
             return View(shopVM);
         }
 
-
-        [HttpGet]
-        public IActionResult Product(int id)
+        public IActionResult Product(int? id)
         {
             if (id == null)
             {
@@ -53,16 +51,19 @@ namespace CurbashaApi.Controllers
             var selectedSection = _context.AspSelections.FirstOrDefault(s => s.Id == selectedProduct.SelectionId);
 
 
+            if (!selectedProduct.IsActive || !selectedSection.IsActive)
+            {
+                return RedirectToAction("Home", "Home");
+            }
             string[] imagePathes = new string[2];
-            imagePathes[0] = $"~/images/products/{id}.1.jpg";
-            imagePathes[1] = $"~/images/products/{id}.2.jpg";
+            imagePathes[0] = $"~/images/products/{selectedSection.SelectionName.ToLower()}-{id}.1.jpg";
+            imagePathes[1] = $"~/images/products/{selectedSection.SelectionName.ToLower()}-{id}.2.jpg";
             ProductViewModel product = new ProductViewModel()
             {
                 Product = selectedProduct,
                 SectionName = selectedSection.SelectionName,
                 ImagePathes = imagePathes
             };
-
             return View(product);
         }
 
@@ -121,6 +122,7 @@ namespace CurbashaApi.Controllers
             }
 
             return RedirectToAction("Product");
+
         }
     }
 }
