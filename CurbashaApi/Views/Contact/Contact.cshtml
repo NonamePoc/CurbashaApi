@@ -1,5 +1,4 @@
-﻿@page
-@model CurbashaApi.Models.ContactModel
+﻿@model CurbashaApi.Models.ContactModel
 
 <body class="sub_page">
     <div class="hero_area">
@@ -80,23 +79,33 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <form onsubmit="sendEmail; reset(); return false;">
+                    <form asp-action="Contact">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div>
-                            <input type="text" id="name" placeholder="Name" />
+                            <label asp-for="Name" class="control-label"></label>
+                            <input asp-for="Name" class="form-control" placeholder="Name" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
                         <div>
-                            <input type="email" id="email" placeholder="Email" />
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" placeholder="Email"/>
+                            <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                         <div>
-                            <input type="text" id="subject" placeholder="Subject" />
+                            <label asp-for="Subject" class="control-label"></label>
+                            <input asp-for="Subject" class="form-control" placeholder="Subject"/>
+                            <span asp-validation-for="Subject" class="text-danger"></span>
                         </div>
                         <div>
-                            <input type="text" id="msg" class="message-box" placeholder="Message" />
+                            <label asp-for="Body" class="control-label"></label>
+                            <input asp-for="Body" class="form-control" placeholder="Message"/>
+                            <span asp-validation-for="Body" class="text-danger"></span>
                         </div>
                         <div class="d-flex ">
-                            <button>
-                                SEND
-                            </button>
+                            <input type="submit" value="Send" class="btn btn-primary" />
+                        </div>
+                        <div>
+                            <i>@ViewBag.Message</i>
                         </div>
                     </form>
                 </div>
@@ -266,6 +275,8 @@
                 Body: document.getElementById("msg").value
             }).then(
                 message => alert(message)
-                };</script>
-
+                    };</script>
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
 </body>

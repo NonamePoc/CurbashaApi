@@ -1,37 +1,46 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CurbashaApi.Models;
+using CurbashaApi.Services;
+using Microsoft.AspNetCore.Mvc;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 
 namespace CurbashaApi.Controllers
 {
     public class ContactController : Controller
     {
+        private readonly ICustomEmailSender _emailSender;
+
+        public ContactController(ICustomEmailSender emailSender)
+        {
+            _emailSender = emailSender;
+        }
+
         public IActionResult Contact()
         {
             return View();
         }
 
-        //Need Fixing
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Contact([Bind("Name,Subject,Email,Body")] ContactModel contact)
+        {
+            if (contact == null)
+            {
+                return BadRequest();
+            }
 
-        //[HttpPost]
-        //public async Task Contact(string name, string email, string subject, string message)
-        //{
-        //    var emailMessage = new MimeMessage();
+            var body = $"Name:{contact.Name}<br>E-mail:{contact.Email}<br>"  + contact.Body;
+            var response = _emailSender.SendEmailAsync(contact.Email, contact.Subject, body);
 
-        //    emailMessage.To.Add(new MailboxAddress("Curbasha Admins", "cspam.bspam.aspam@gmail.com"));
-        //    emailMessage.From.Add(new MailboxAddress(name, email));
-        //    emailMessage.Subject = subject;
-        //    emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
-        //    {
-        //        Text = message
-        //    };
-
-        //    using (var client = new SmtpClient())
-        //    {
-        //        await client.ConnectAsync("");
-        //        await client.AuthenticateAsync("cspam.bspam.aspam@gmail.com", "password");
-        //        await client.SendAsync(emailMessage);
-
-        //        await client.DisconnectAsync(true);
-        //    }
-        //}
+            if (response.IsCompleted)
+            {
+                ViewBag.Message = "Successfully sent";
+            }
+            else
+            {
+                ViewBag.Message = "Sorry, try again later";
+            }
+            return View();
+        }
     }
 }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using CurbashaApi.Data;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using CurbashaApi.Models;
+using CurbashaApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("CurbashaApiContextConnection") ?? throw new InvalidOperationException("Connection string 'CurbashaApiContextConnection' not found.");
@@ -14,8 +15,6 @@ builder.Services.AddDbContext<CurbashaApiContext>(options =>
 
 builder.Services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<CurbashaApiContext>();
-//builder.Services.AddTransient<IEmailSender>;
-
 
 
 
@@ -24,6 +23,10 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddRazorPages();
 
 
+builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.AddTransient<ICustomEmailSender,EmailSender>();
+
+var emailApiKey = builder.Configuration["email"];
 
 var app = builder.Build();
 
@@ -44,8 +47,6 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
-
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

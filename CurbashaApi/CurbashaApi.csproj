@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>11f527c8-0734-4b48-bcb8-3f2fd51eae87</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MailKit" Version="3.4.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.10" />
@@ -30,9 +30,9 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
-    <PackageReference Include="MimeKit" Version="3.4.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.4" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.10" />
+    <PackageReference Include="SendGrid" Version="9.28.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,6 +44,7 @@
     <Folder Include="Views\SelectionsAdmin\" />
     <Folder Include="Views\UserOrdersAdmin\" />
     <Folder Include="Views\UsersAdmin\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -66,5 +67,7 @@
     <None Remove="Views\SelectionsAdmin\" />
     <None Remove="Views\UserOrdersAdmin\" />
     <None Remove="Views\UsersAdmin\" />
+    <None Remove="SendGrid" />
+    <None Remove="Services\" />
   </ItemGroup>
 </Project>
