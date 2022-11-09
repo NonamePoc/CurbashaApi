@@ -8,9 +8,6 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\images\logo.png" />
-    <Content Remove="wwwroot\images\products\pants-10.1.jpg" />
-    <Content Remove="wwwroot\images\t-1.jpg" />
-    <Content Remove="wwwroot\Admin\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,15 +29,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
     <PackageReference Include="MimeKit" Version="3.4.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.4" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.10" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="Views\ProductAdmin\" />
-    <Folder Include="Views\SelectionsAdmin\" />
-    <Folder Include="wwwroot\Admin\" />
-    <Folder Include="Views\UsersAdmin\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -55,10 +47,4 @@
     <Page Include="wwwroot\images\logo.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Remove="Views\ProductAdmin\" />
-    <None Remove="Views\SelectionsAdmin\" />
-    <None Remove="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" />
-    <None Remove="Views\UsersAdmin\" />
-  </ItemGroup>
 </Project>
