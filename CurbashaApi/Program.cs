@@ -13,7 +13,7 @@ builder.Services.AddDbContext<CurbashaApiContext>(options =>
     options.UseSqlServer(connectionString));
 
 
-builder.Services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>()
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<CurbashaApiContext>();
 
 
@@ -25,8 +25,6 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.AddTransient<ICustomEmailSender,EmailSender>();
-
-var emailApiKey = builder.Configuration["email"];
 
 var app = builder.Build();
 

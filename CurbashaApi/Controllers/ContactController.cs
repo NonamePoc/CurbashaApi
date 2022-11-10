@@ -32,7 +32,7 @@ namespace CurbashaApi.Controllers
             var body = $"Name:{contact.Name}<br>E-mail:{contact.Email}<br>"  + contact.Body;
             var response = _emailSender.SendEmailAsync(contact.Email, contact.Subject, body);
 
-            if (response.IsCompleted)
+            if (response != null)
             {
                 ViewBag.Message = "Successfully sent";
             }

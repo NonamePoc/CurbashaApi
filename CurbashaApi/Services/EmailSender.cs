@@ -9,16 +9,10 @@ namespace CurbashaApi.Services
 {
     public class EmailSender: IEmailSender, ICustomEmailSender
     {
-        //private string apiKey = @"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";
-        //private string confirmtionTempl = "d-f36414e602d94447acd6f7020db5be19";
-        //private string resetPassTempl = "d-498faee9418e4e5c8da01833e24e6293";
-        //private string orderConfirmTempl = "d-5404f824b596436788d2b95c95deff11";
-        private readonly IConfiguration _config;
-
-        public EmailSender(IConfiguration config)
-        {
-            _config = config;
-        }
+        private string apiKey = @"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";
+        private string confirmtionTempl  = "d-f36414e602d94447acd6f7020db5be19";
+        private string resetPassTempl    = "d-498faee9418e4e5c8da01833e24e6293";
+        private string orderConfirmTempl = "d-5404f824b596436788d2b95c95deff11";
 
         public Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
@@ -27,7 +21,7 @@ namespace CurbashaApi.Services
 
         public Task Execute(string subject, string message, string email)
         {
-            var client = new SendGridClient(_config["apiKey"]);
+            var client = new SendGridClient(apiKey);
             var msg = new SendGridMessage()
             {
                 From = new EmailAddress("shopcurbasha@gmail.com", "Curbasha Shop"),
@@ -49,7 +43,7 @@ namespace CurbashaApi.Services
                 Sender_Name = email,
                 Url = url
             };
-            return ExecuteWithTempl(email, email, _config["confirmtionTempl"], dynamicTemplateData);
+            return ExecuteWithTempl(email, email, confirmtionTempl, dynamicTemplateData);
         }
 
         public Task SendResetPassAsync(string email, string url)
@@ -58,7 +52,7 @@ namespace CurbashaApi.Services
             {
                 Url = url
             };
-            return ExecuteWithTempl(email, email, _config["resetPassTempl"], dynamicTemplateData);
+            return ExecuteWithTempl(email, email, resetPassTempl, dynamicTemplateData);
         }
 
         public Task SendOrderConfirmAsync(string email, string username, IEnumerable<AspOrderItem> items, int orderId)
@@ -70,12 +64,12 @@ namespace CurbashaApi.Services
                 Date = DateTime.Now,
                 Item = items
             };
-            return ExecuteWithTempl(email, username, _config["orderConfirmTempl"], dynamicTemplateData);
+            return ExecuteWithTempl(email, username, orderConfirmTempl, dynamicTemplateData);
         }
 
         public Task ExecuteWithTempl(string email, string name, string templateId, object dynamicTemplateData)
         {
-            var client = new SendGridClient(_config["apiKey"]);
+            var client = new SendGridClient(apiKey);
             var from = new EmailAddress("shopcurbasha@gmail.com", "Curbasha Shop");
             var to = new EmailAddress(email);
 
