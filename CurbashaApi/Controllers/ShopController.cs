@@ -9,6 +9,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
 
+
 namespace CurbashaApi.Controllers
 {
     public class ShopController : Controller
@@ -20,13 +21,12 @@ namespace CurbashaApi.Controllers
             _context = context;
         }
 
-        [HttpGet]
+
         public async Task<IActionResult> Shop()
         {
-            var allProducts = _context.AspProducts.Select(p => p);
-            var allSelections = _context.AspSelections.Select(s => s);
+            var allProducts = _context.AspProducts.Where(p => p.IsActive == true);
+            var allSelections = _context.AspSelections.Where(s => s.IsActive == true);
 
-            // вытягнуть текущего юзера 
             var shopVM = new ShopViewModel
             {
                 Products = await allProducts.ToListAsync(),
@@ -35,9 +35,7 @@ namespace CurbashaApi.Controllers
             return View(shopVM);
         }
 
-
-        [HttpGet]
-        public IActionResult Product(int id)
+        public IActionResult Product(int? id)
         {
             if (id == null)
             {
@@ -54,6 +52,10 @@ namespace CurbashaApi.Controllers
             var selectedSection = _context.AspSelections.FirstOrDefault(s => s.Id == selectedProduct.SelectionId);
 
 
+            if (!selectedProduct.IsActive || !selectedSection.IsActive)
+            {
+                return RedirectToAction("Home", "Home");
+            }
             string[] imagePathes = new string[2];
             imagePathes[0] = $"~/images/products/{id}.1.jpg";
             imagePathes[1] = $"~/images/products/{id}.2.jpg";
@@ -63,10 +65,8 @@ namespace CurbashaApi.Controllers
                 SectionName = selectedSection.SelectionName,
                 ImagePathes = imagePathes
             };
-
             return View(product);
         }
-
 
         [HttpGet]
         public IActionResult Order(int? id, string size)
@@ -86,7 +86,8 @@ namespace CurbashaApi.Controllers
                     var random = new Random();
                     var guest = new IdentityUser()
                     {
-                        UserName = "Guest" + random.Next(1000, 9999)
+                        UserName = "Guest" + random.Next(1000, 9999),
+                        EmailConfirmed = true
                     };
                     _context.Users.Add(guest);
                     _context.SaveChanges();
@@ -109,7 +110,6 @@ namespace CurbashaApi.Controllers
                         CreateAt = DateAndTime.Now,
                         IsActive = true,
                         User = currentUser,
-                        Total = selectedProduct.Price
                     };
 
                     _context.AspUserOrder.Add(userOder);
@@ -117,8 +117,8 @@ namespace CurbashaApi.Controllers
                     return RedirectToAction("Product");
                 }
 
-                // add price to total
-                delivery.Total += selectedProduct.Price;
+                //// add price to total
+                //delivery.Total += selectedProduct.Price;
 
                 // есть ли такой товар в aspitem
                 var item = _context.AspOrderItems.FirstOrDefault(i =>

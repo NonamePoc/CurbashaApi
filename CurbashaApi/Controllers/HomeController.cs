@@ -33,7 +33,8 @@ namespace CurbashaApi.Controllers
                     var random = new Random();
                     var guest = new IdentityUser()
                     {
-                        UserName = "Guest" + random.Next(1000, 9999)
+                        UserName = "Guest" + random.Next(1000, 9999),
+                        EmailConfirmed = true
                     };
                     _context.Users.Add(guest);
                     _context.SaveChanges();
