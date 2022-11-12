@@ -54,7 +54,7 @@ namespace CurbashaApi.Controllers
         {
             var delivery = GetDelivery();
 
-            ViewBag.total = _context.AspUserOrder.Select(s => s).Where(w => w.Id == delivery.Id).FirstOrDefault().Total;
+            //ViewBag.total = _context.AspUserOrder.Select(s => s).Where(w => w.Id == delivery.Id).FirstOrDefault().Total;
 
             return View(delivery);
         }

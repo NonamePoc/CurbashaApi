@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using CurbashaApi.Data;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using CurbashaApi.Models;
+using CurbashaApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("CurbashaApiContextConnection") ?? throw new InvalidOperationException("Connection string 'CurbashaApiContextConnection' not found.");
@@ -12,10 +13,8 @@ builder.Services.AddDbContext<CurbashaApiContext>(options =>
     options.UseSqlServer(connectionString));
 
 
-builder.Services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>()
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<CurbashaApiContext>();
-//builder.Services.AddTransient<IEmailSender>;
-
 
 
 
@@ -23,6 +22,9 @@ builder.Services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>()
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddRazorPages();
 
+
+builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.AddTransient<ICustomEmailSender,EmailSender>();
 
 var app = builder.Build();
 
@@ -44,8 +46,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -53,7 +53,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 
-app.UseAuthentication();;
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

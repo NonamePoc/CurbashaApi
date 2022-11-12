@@ -4,6 +4,7 @@
     ViewData["Title"] = "Shop";
 }
 
+
     <!-- brand section -->
     @foreach (var selection in Model.Selections)
     {
@@ -11,7 +12,8 @@
             <div class="container">
                 <div class="heading_container">
                     <h2>
-                        @selection.SelectionName
+                        <a name="@selection.Id"></a>
+                            @selection.SelectionName
                     </h2>
                 </div>
                 <div class="brand_container layout_padding2">
@@ -27,7 +29,10 @@
                                         </h5>
                                     </div>*@
                                 <div class="img-box">
-                                    <img src="~/images/products/@selection.SelectionName.ToLower()-@product.Id.1.jpg" alt="">
+                                    @if (System.IO.File.Exists($"wwwroot/images/products/{@product.Id}.1.jpg"))
+                                    {
+                                        <img src="~/images/products/@product.Id.1.jpg" alt="">
+                                    }
                                 </div>
                                 <div class="detail-box">
                                     <h6 class="price">
@@ -50,7 +55,7 @@
         <div class="container">
             <div class="info_logo">
                 <h2>
-                    Digitf
+                    Curbasha
                 </h2>
             </div>
             <div class="row">
@@ -62,7 +67,7 @@
                         </h5>
                         <div>
                             <div class="img-box">
-                                <img src="images/location-white.png" width="18px" alt="">
+                                <img src="~/images/location-white.png" width="18px" alt="">
                             </div>
                             <p>
                                 Address
@@ -70,7 +75,8 @@
                         </div>
                         <div>
                             <div class="img-box">
-                                <img src="images/telephone-white.png" width="12px" alt="">
+
+                                <img src="~/images/telephone-white.png" width="12px" alt="">
                             </div>
                             <p>
                                 +01 1234567890
@@ -78,7 +84,7 @@
                         </div>
                         <div>
                             <div class="img-box">
-                                <img src="images/envelope-white.png" width="18px" alt="">
+                                <img src="~/images/envelope-white.png" width="18px" alt="">
                             </div>
                             <p>
                                 demo@gmail.com
@@ -97,6 +103,7 @@
                     </div>
                 </div>
 
+
                 <div class="col-md-3">
                     <div class="info_insta">
                         <h5>
@@ -106,12 +113,12 @@
                             <div>
                                 <a href="">
                                     <div class="insta-box b-1">
-                                        <img src="images/i-1.jpg" alt="">
+                                        <img src="~/images/i-1.jpg" alt="">
                                     </div>
                                 </a>
                                 <a href="">
                                     <div class="insta-box b-2">
-                                        <img src="images/i-2.jpg" alt="">
+                                        <img src="~/images/i-2.jpg" alt="">
                                     </div>
                                 </a>
                             </div>
@@ -119,24 +126,27 @@
                             <div>
                                 <a href="">
                                     <div class="insta-box b-3">
-                                        <img src="images/i-3.jpg" alt="">
+                                        <img src="~/images/i-3.jpg" alt="">
                                     </div>
                                 </a>
                                 <a href="">
                                     <div class="insta-box b-4">
-                                        <img src="images/i-4.jpg" alt="">
+
+                                        <img src="~/images/i-4.jpg" alt="">
                                     </div>
                                 </a>
                             </div>
                             <div>
                                 <a href="">
                                     <div class="insta-box b-3">
-                                        <img src="images/i-5.jpg" alt="">
+
+                                        <img src="~/images/i-5.jpg" alt="">
                                     </div>
                                 </a>
                                 <a href="">
                                     <div class="insta-box b-4">
-                                        <img src="images/i-6.jpg" alt="">
+
+                                        <img src="~/images/i-6.jpg" alt="">
                                     </div>
                                 </a>
                             </div>
@@ -156,16 +166,16 @@
                         </form>
                         <div class="social_box">
                             <a href="">
-                                <img src="images/fb.png" alt="">
+                                <img src="~/images/fb.png" alt="">
                             </a>
                             <a href="">
-                                <img src="images/twitter.png" alt="">
+                                <img src="~/images/twitter.png" alt="">
                             </a>
                             <a href="">
-                                <img src="images/linkedin.png" alt="">
+                                <img src="~/images/linkedin.png" alt="">
                             </a>
                             <a href="">
-                                <img src="images/youtube.png" alt="">
+                                <img src="~/images/youtube.png" alt="">
                             </a>
                         </div>
                     </div>

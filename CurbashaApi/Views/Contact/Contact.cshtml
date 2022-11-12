@@ -1,5 +1,5 @@
-﻿@page
-@model CurbashaApi.Models.ContactModel
+
+
 
     <!-- contact section -->
 
@@ -15,23 +15,29 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <form onsubmit="sendEmail; reset(); return false;">
+                    <form asp-action="Contact">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div>
-                            <input type="text" id="name" placeholder="Name" />
+                            <input type="text" asp-for="Name" class="form-control" placeholder="Name" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
                         <div>
-                            <input type="email" id="email" placeholder="Email" />
+                            <input type="text" asp-for="Email" class="form-control" placeholder="Email"/>
+                            <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                         <div>
-                            <input type="text" id="subject" placeholder="Subject" />
+                            <input type="text" asp-for="Subject" class="form-control" placeholder="Subject"/>
+                            <span asp-validation-for="Subject" class="text-danger"></span>
                         </div>
-                        <div>
-                            <input type="text" id="msg" class="message-box" placeholder="Message" />
+                        <div > 
+                            <input type="text" asp-for="Body" class="message-box" placeholder="Message"/>
+                            <span asp-validation-for="Body" class="text-danger"></span>
                         </div>
                         <div class="d-flex ">
-                            <button>
-                                SEND
-                            </button>
+                            <input type="submit" value="Send" class="btn btn-primary" />
+                        </div>
+                        <div>
+                            <i>@ViewBag.Message</i>
                         </div>
                     </form>
                 </div>
@@ -54,7 +60,7 @@
         <div class="container">
             <div class="info_logo">
                 <h2>
-                    Digitf
+                    Curbasha
                 </h2>
             </div>
             <div class="row">
@@ -66,7 +72,7 @@
                         </h5>
                         <div>
                             <div class="img-box">
-                                <img src="images/location-white.png" width="18px" alt="">
+                                <img src="~/images/location-white.png" width="18px" alt="">
                             </div>
                             <p>
                                 Address
@@ -74,7 +80,7 @@
                         </div>
                         <div>
                             <div class="img-box">
-                                <img src="images/telephone-white.png" width="12px" alt="">
+                                <img src="~/images/telephone-white.png" width="12px" alt="">
                             </div>
                             <p>
                                 +01 1234567890
@@ -82,7 +88,7 @@
                         </div>
                         <div>
                             <div class="img-box">
-                                <img src="images/envelope-white.png" width="18px" alt="">
+                                <img src="~/images/envelope-white.png" width="18px" alt="">
                             </div>
                             <p>
                                 demo@gmail.com
@@ -110,12 +116,12 @@
                             <div>
                                 <a href="">
                                     <div class="insta-box b-1">
-                                        <img src="images/i-1.jpg" alt="">
+                                        <img src="~/images/i-1.jpg" alt="">
                                     </div>
                                 </a>
                                 <a href="">
                                     <div class="insta-box b-2">
-                                        <img src="images/i-2.jpg" alt="">
+                                        <img src="~/images/i-2.jpg" alt="">
                                     </div>
                                 </a>
                             </div>
@@ -123,24 +129,24 @@
                             <div>
                                 <a href="">
                                     <div class="insta-box b-3">
-                                        <img src="images/i-3.jpg" alt="">
+                                        <img src="~/images/i-3.jpg" alt="">
                                     </div>
                                 </a>
                                 <a href="">
                                     <div class="insta-box b-4">
-                                        <img src="images/i-4.jpg" alt="">
+                                        <img src="~/images/i-4.jpg" alt="">
                                     </div>
                                 </a>
                             </div>
                             <div>
                                 <a href="">
                                     <div class="insta-box b-3">
-                                        <img src="images/i-5.jpg" alt="">
+                                        <img src="~/images/i-5.jpg" alt="">
                                     </div>
                                 </a>
                                 <a href="">
                                     <div class="insta-box b-4">
-                                        <img src="images/i-6.jpg" alt="">
+                                        <img src="~/images/i-6.jpg" alt="">
                                     </div>
                                 </a>
                             </div>
@@ -160,16 +166,16 @@
                         </form>
                         <div class="social_box">
                             <a href="">
-                                <img src="images/fb.png" alt="">
+                                <img src="~/images/fb.png" alt="">
                             </a>
                             <a href="">
-                                <img src="images/twitter.png" alt="">
+                                <img src="~/images/twitter.png" alt="">
                             </a>
                             <a href="">
-                                <img src="images/linkedin.png" alt="">
+                                <img src="~/images/linkedin.png" alt="">
                             </a>
                             <a href="">
-                                <img src="images/youtube.png" alt="">
+                                <img src="~/images/youtube.png" alt="">
                             </a>
                         </div>
                     </div>
@@ -178,3 +184,4 @@
         </div>
     </section>
     <!-- end info_section -->
+
