@@ -1,0 +1,13 @@
+﻿@model CurbashaApi.Areas.Identity.Entity.AspUserOrder
+
+@{
+    ViewBag.Title = "Checkout Complete";
+    Layout = "_Layout";
+}
+<h2>Checkout Complete</h2>
+<p>Thanks for your order! Your order id is: @Model.Id </p>
+@*<p>Order Total: @Model.Total</p>*@
+<p>
+    How about shopping for some more music in our
+    @Html.ActionLink("store", "Home", "Home")
+</p>

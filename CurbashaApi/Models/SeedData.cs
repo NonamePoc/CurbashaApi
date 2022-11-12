@@ -20,18 +20,9 @@ namespace CurbashaApi.Models
                     return;
                 }
                 context.AspSelections.AddRange(
-                    new AspSelections {
-                        SelectionName = "Shirts",
-                        IsActive = true
-                    },
-                    new AspSelections {
-                        SelectionName = "Sweatshirts",
-                        IsActive = true
-                    },
-                    new AspSelections {
-                        SelectionName = "Pants",
-                        IsActive = true
-                    }
+                    new AspSelections { SelectionName = "Shirts"},
+                    new AspSelections { SelectionName = "Sweatshirts" },
+                    new AspSelections { SelectionName = "Pants" }
                 );
                 context.SaveChanges();
 
@@ -47,8 +38,7 @@ namespace CurbashaApi.Models
                         Description = "Футболка стандартного крою з круглим коміром у рубчик і короткими рукавами. Бавовняна тканина з мерсеризованим ефектом.\nКолір: Темно-зелений\nСклад: 100% Бавовна",
                         AspSelections = context.AspSelections.First(s => s.Id == 1),
                         SelectionId = 1,
-                        Price = 499,
-                        IsActive = true
+                        Price = 499
                     },
                     new AspProduct
                     {
@@ -56,8 +46,7 @@ namespace CurbashaApi.Models
                         Description = "Футболка стандартного крою з круглим коміром у рубчик і короткими рукавами. Бавовняна тканина з мерсеризованим ефектом.\nКолір: Сіро-глинястий\nСклад: 100% Бавовна",
                         AspSelections = context.AspSelections.First(s => s.Id == 1),
                         SelectionId = 1,
-                        Price = 499,
-                        IsActive = true
+                        Price = 499
                     },
                     new AspProduct
                     {
@@ -65,8 +54,7 @@ namespace CurbashaApi.Models
                         Description = "Футболка стандартного крою з круглим коміром у рубчик і короткими рукавами. Бавовняна тканина з мерсеризованим ефектом.\nКолір: Антрацитово-сірий\nСклад: 100% Бавовна",
                         AspSelections = context.AspSelections.First(s => s.Id == 1),
                         SelectionId = 1,
-                        Price = 499,
-                        IsActive = true
+                        Price = 499
                     },
                     new AspProduct
                     {
@@ -74,8 +62,7 @@ namespace CurbashaApi.Models
                         Description = "Футболка стандартного крою з круглим коміром у рубчик і короткими рукавами. Бавовняна тканина з мерсеризованим ефектом.\nКолір: Екрю/чорний\nСклад: 100% Бавовна",
                         AspSelections = context.AspSelections.First(s => s.Id == 1),
                         SelectionId = 1,
-                        Price = 549,
-                        IsActive = true
+                        Price = 549
                     },
 
                     //Sweatshirts
@@ -86,8 +73,7 @@ namespace CurbashaApi.Models
                         Description = "Світшот об’ємного крою з круглим коміром і довгими рукавами. Окантовка в рубчик по краях.\nКолір: Чорний\nСклад: Головна тканина - 100% Бавовна.",
                         AspSelections = context.AspSelections.First(s => s.Id == 2),
                         SelectionId = 2,
-                        Price = 899,
-                        IsActive = true
+                        Price = 899
                     },
                     new AspProduct
                     {
@@ -95,8 +81,7 @@ namespace CurbashaApi.Models
                         Description = "Опис: Світшот об’ємного крою з круглим коміром і довгими рукавами. Окантовка в рубчик по краях.\nКолір: Сіро-глинястий\nСклад: Головна тканина - 100% Бавовна.",
                         AspSelections = context.AspSelections.First(s => s.Id == 2),
                         SelectionId = 2,
-                        Price = 899,
-                        IsActive = true
+                        Price = 899
                     },
                     new AspProduct
                     {
@@ -104,8 +89,7 @@ namespace CurbashaApi.Models
                         Description = "Світшот об’ємного крою з круглим коміром і довгими рукавами. Окантовка в рубчик по краях.\nКолір: Антрацитово-сірий\nСклад: Головна тканина - 100% Бавовна.",
                         AspSelections = context.AspSelections.First(s => s.Id == 2),
                         SelectionId = 2,
-                        Price = 899,
-                        IsActive = true
+                        Price = 899
                     },
                     new AspProduct
                     {
@@ -113,8 +97,7 @@ namespace CurbashaApi.Models
                         Description = "Світшот об’ємного крою з круглим коміром і довгими рукавами. Окантовка в рубчик по краях.\nКолір: Екрю\nСклад: Головна тканина - 100% Бавовна.",
                         AspSelections = context.AspSelections.First(s => s.Id == 2),
                         SelectionId = 2,
-                        Price = 899,
-                        IsActive = true
+                        Price = 899
                     },
 
                     //Pants
@@ -125,8 +108,7 @@ namespace CurbashaApi.Models
                         Description = "Штани вузького крою з еластичної бавовняної тканини. Застібаються на блискавку та ґудзик. Кишені спереду та прорізні кишені з ґудзиком ззаду.\nКолір: Чорний \nСклад: 97% Бавовна · 3% Еластан",
                         AspSelections = context.AspSelections.First(s => s.Id == 3),
                         SelectionId = 3,
-                        Price = 1199,
-                        IsActive = true
+                        Price = 1199
                     },
                     new AspProduct
                     {
@@ -134,8 +116,7 @@ namespace CurbashaApi.Models
                         Description = "Штани вузького крою з еластичної бавовняної тканини. Застібаються на блискавку та ґудзик. Кишені спереду та прорізні кишені з ґудзиком ззаду.\nКолір: Антрацитово-сірий\nСклад: 97% Бавовна · 3% Еластан",
                         AspSelections = context.AspSelections.First(s => s.Id == 3),
                         SelectionId = 3,
-                        Price = 1199,
-                        IsActive = true
+                        Price = 1199
                     },
                     new AspProduct
                     {
@@ -143,9 +124,7 @@ namespace CurbashaApi.Models
                         Description = "Штани вузького крою з еластичної бавовняної тканини. Застібаються на блискавку та ґудзик. Кишені спереду та прорізні кишені з ґудзиком ззаду.\nКолір: Колір льоду\nСклад: 97% Бавовна · 3% Еластан",
                         AspSelections = context.AspSelections.First(s => s.Id == 3),
                         SelectionId = 3,
-                        Price = 1199,
-                        IsActive = true
-
+                        Price = 1199
                     },
                     new AspProduct
                     {
@@ -153,8 +132,7 @@ namespace CurbashaApi.Models
                         Description = "Штани вузького крою з еластичної бавовняної тканини. Застібаються на блискавку та ґудзик. Кишені спереду та прорізні кишені з ґудзиком ззаду.\nКолір: Темно-синій\nСклад: 97% Бавовна · 3% Еластан",
                         AspSelections = context.AspSelections.First(s => s.Id == 3),
                         SelectionId = 3,
-                        Price = 1199,
-                        IsActive = true
+                        Price = 1199
                     }
                 );
                 context.SaveChanges();

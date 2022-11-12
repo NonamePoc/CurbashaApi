@@ -36,8 +36,8 @@ namespace CurbashaApi.Migrations
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -51,8 +51,7 @@ namespace CurbashaApi.Migrations
 
                     b.Property<string>("Size")
                         .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -75,19 +74,13 @@ namespace CurbashaApi.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .HasMaxLength(500)
-                        .HasColumnType("ntext");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NameProduct")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.Property<int>("SelectionId")
                         .HasColumnType("int");
@@ -107,13 +100,8 @@ namespace CurbashaApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
                     b.Property<string>("SelectionName")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -133,6 +121,9 @@ namespace CurbashaApi.Migrations
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
+
+                    b.Property<double>("Total")
+                        .HasColumnType("float");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");

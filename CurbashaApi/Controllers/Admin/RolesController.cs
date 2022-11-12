@@ -9,8 +9,8 @@ namespace CurbashaApi.Controllers
     [Authorize(Roles = "Admin")]
     public class RolesController : Controller
     {
-        private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        RoleManager<IdentityRole> _roleManager;
+        UserManager<IdentityUser> _userManager;
         public RolesController(RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager)
         {
             _roleManager = roleManager;
@@ -51,6 +51,7 @@ namespace CurbashaApi.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult UserList() => View(_userManager.Users.ToList());
 
         public async Task<IActionResult> Edit(string userId)
         {

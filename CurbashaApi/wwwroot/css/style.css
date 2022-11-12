@@ -809,6 +809,10 @@ a:focus {
           align-items: stretch;
 }
 
+.close:hover {
+    cursor: pointer;
+}
+
 .info_section .info_contact .img-box {
   width: 35px;
   display: -webkit-box;
