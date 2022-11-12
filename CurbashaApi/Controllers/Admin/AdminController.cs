@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CurbashaApi.Controllers.Admin
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class Admin : Controller
     {  
         public IActionResult Index()

@@ -1,4 +1,4 @@
-﻿@using CurbashaApi.Areas.Identity.Entity
+@using CurbashaApi.Areas.Identity.Entity
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @model IEnumerable<CurbashaApi.Areas.Identity.Entity.AspOrderItem>
 
@@ -7,185 +7,185 @@
 
 <head>
     <!-- Basic -->
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- Site Metas -->
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
     <title>Digitf</title>
 
     <!-- bootstrap core css -->
-    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.css" />
 
     <!-- fonts style -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700&display=swap" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="~/css/style.css" rel="stylesheet"/>
+    <link href="~/css/style.css" rel="stylesheet" />
     <!-- responsive style -->
-    <link href="~/css/responsive.css" rel="stylesheet"/>
+    <link href="~/css/responsive.css" rel="stylesheet" />
 </head>
 
 <body class="sub_page">
-<div class="hero_area">
-    <!-- header section strats -->
-    <header class="header_section">
-        <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg custom_nav-container">
-                <a class="navbar-brand" href="/Home/Home">
-                    <img src="@Url.Content("~/images/logo.png")">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <div class="hero_area">
+        <!-- header section strats -->
+        <header class="header_section">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container">
+                    <a class="navbar-brand" href="/Home/Home">
+                        <img src="@Url.Content("~/images/logo.png")">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav  ">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Home/Home"> Home </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Shop/Shop">Shop </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Furniture/Furniture"> Furniture </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Contact/Contact">Contact us</a>
-                        </li>
-                    </ul>
-                    <div class="user_option">
-                        <a asp-area="Identity" asp-page="/Account/Login" style="margin-right: 20px;">
-                            <img src="@Url.Content("~/images/user.png")" alt="">
-                            <span>
-                                Login
-                            </span>
-                        </a>
-                        <a asp-area="" asp-controller="BasketProduct" asp-action="Basket" style="margin-right: 20px;">
-                            <img src="@Url.Content("~/images/shopping-cart.png")" alt="">
-                            <span>
-                                Cart
-                            </span>
-                        </a>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav  ">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/Home"> Home </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Shop/Shop">Shop </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Furniture/Furniture"> Furniture </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Contact/Contact">Contact us</a>
+                            </li>
+                        </ul>
+                        <div class="user_option">
+                            <a asp-area="Identity" asp-page="/Account/Login" style="margin-right: 20px;">
+                                <img src="@Url.Content("~/images/user.png")" alt="">
+                                <span>
+                                    Login
+                                </span>
+                            </a>
+                            <a asp-area="" asp-controller="BasketProduct" asp-action="Basket" style="margin-right: 20px;">
+                                <img src="@Url.Content("~/images/shopping-cart.png")" alt="">
+                                <span>
+                                    Cart
+                                </span>
+                            </a>
 
-                    </div>
-                </div>
-                <div>
-                    <div class="custom_menu-btn ">
-                        <button>
-                            <span class=" s-1">
-
-                            </span>
-                            <span class="s-2">
-
-                            </span>
-                            <span class="s-3">
-
-                            </span>
-                        </button>
-                    </div>
-                </div>
-
-            </nav>
-        </div>
-    </header>
-</div>
-
-
-<section class="cart-section">
-    <div class="card">
-        <div class="row">
-            <div class="col-md-8 cart">
-                <div class="title">
-                    <div class="row">
-                        <div class="col">
-                            <h4>
-                                <b>Shopping Cart</b>
-                            </h4>
                         </div>
-                        <div class="col align-self-center text-right text-muted"></div>
                     </div>
-                </div>
+                    <div>
+                        <div class="custom_menu-btn ">
+                            <button>
+                                <span class=" s-1">
 
-                <div class="order-items-body">
-                    @foreach (var item in Model)
-                    {
-                        <div class="row border-top border-bottom">
-                            <div class="row main align-items-center" id="@item.Id">
-                                <div class="col-2">
-                                    <img class="img-fluid" src="~/images/products/@item.ProductId.1.jpg">
-                                </div>
-                                <div class="col">
-                                    <div class="row text-muted">@item.ProductName</div>
-                                </div>
-                                <div class="plus_minus">
-                                    <input type='button' value='-' class='minus'/>
-                                    <strong>
-                                        <label id="orderItemQuantity">@item.Quantity</label>
-                                    </strong>
-                                    <input type='button' value='+' class='plus'/>
-                                    <input id="orderItemId" class="value" value="@item.Id" hidden/>
-                                </div>
-                                <div class="col-2">@item.Size</div>
-                                <div class="col price">
-                                    @item.Price <span class='close'>&#10005;</span>
+                                </span>
+                                <span class="s-2">
+
+                                </span>
+                                <span class="s-3">
+
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+
+                </nav>
+            </div>
+        </header>
+    </div>
+
+
+    <section class="cart-section">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-8 cart">
+                    <div class="title">
+                        <div class="row">
+                            <div class="col">
+                                <h4>
+                                    <b>Shopping Cart</b>
+                                </h4>
+                            </div>
+                            <div class="col align-self-center text-right text-muted"></div>
+                        </div>
+                    </div>
+
+                    <div class="order-items-body">
+                        @foreach (var item in Model)
+                        {
+                            <div class="row border-top border-bottom">
+                                <div class="row main align-items-center" id="@item.Id">
+                                    <div class="col-2">
+                                        <img class="img-fluid" src="~/images/products/@item.ProductId.1.jpg">
+                                    </div>
+                                    <div class="col">
+                                        <div class="row text-muted">@item.ProductName</div>
+                                    </div>
+                                    <div class="plus_minus">
+                                        <input type='button' value='-' class='minus' />
+                                        <strong>
+                                            <label id="orderItemQuantity">@item.Quantity</label>
+                                        </strong>
+                                        <input type='button' value='+' class='plus' />
+                                        <input id="orderItemId" class="value" value="@item.Id" hidden />
+                                    </div>
+                                    <div class="col-2">@item.Size</div>
+                                    <div class="col price">
+                                        @item.Price <span class='close'>&#10005;</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    }
+                        }
+                    </div>
+                    <div class="back-to-shop">
+                        <a href="@Url.Action("Shop", "Shop")">&leftarrow;</a><in class="text-muted">Back to shop</in>
+                    </div>
                 </div>
-                <div class="back-to-shop">
-                    <a href="@Url.Action("Shop", "Shop")">&leftarrow;</a><in class="text-muted">Back to shop</in>
+                <div class="col-md-4 summary">
+                    <div>
+                        <h5>
+                            <b>Summary</b>
+                        </h5>
+                    </div>
+                    <hr>
+                    <div class="row">
+                    </div>
+                    <form>
+                        <p>GIVE CODE</p>
+                        <input id="code" placeholder="Enter your code">
+                    </form>
+                    <div class="row" style="border-top: 1px solid rgba(0, 0, 0, .1); padding: 2vh 0;">
+                        <div class="col">TOTAL PRICE</div>
+                        <div class="col text-right total_price">@ViewBag.total</div>
+                    </div>
+                    <form asp-action="Checkout">
+                        <button type="submit" class="btn">MAKE AN ORDER</button>
+                    </form>
                 </div>
-            </div>
-            <div class="col-md-4 summary">
-                <div>
-                    <h5>
-                        <b>Summary</b>
-                    </h5>
-                </div>
-                <hr>
-                <div class="row">
-                </div>
-                <form>
-                    <p>GIVE CODE</p>
-                    <input id="code" placeholder="Enter your code">
-                </form>
-                <div class="row" style="border-top: 1px solid rgba(0, 0, 0, .1); padding: 2vh 0;">
-                    <div class="col">TOTAL PRICE</div>
-                    <div class="col text-right total_price">@ViewBag.total</div>
-                </div>
-                <form asp-action="Checkout">
-                    <button type="submit" class="btn">MAKE AN ORDER</button>
-                </form>
-            </div>
 
-            @section Scripts
+                @section Scripts
             {
-                <script>
-    
+                    <script>
+
                 $(document).ready(function() {
                     $("div.order-items-body div.plus_minus input[type=button]").click(function() {
                          changeQuantity($(this));
                      });
                 });
-                 
+
                 function changeQuantity(changeQuantityBtn){
                     const parentDiv = changeQuantityBtn.parent();
-                    
+
                     const orderItemQuantity = parentDiv.find('#orderItemQuantity');
                     let orderItemQuantityValue = parseInt(orderItemQuantity.text());
-                    
+
                     const orderItemId = parentDiv.find('#orderItemId').val();
                     const symbol = changeQuantityBtn.val();
-                                        
+
                     if(orderItemQuantityValue <= 1 && symbol === '-')
                         return;
-                    
+
                      $.ajax({
                          url: "@Url.Action("ChangeOrderItemQuantity")",
                          type: "POST",
@@ -203,200 +203,192 @@
                          }
                      });
                 }
-                </script>
-                <script>
-                    $(document).ready(function(){
-                      $('.close').click(function () {
-                      var total = $(".total_price").text();
-                      var price = $(this).closest(".price").text();
-                      var qty = $(this).closest(".row").find("#orderItemQuantity").text();
-                      var result = parseInt(total) - (parseInt(qty) * parseInt(price));
-                      $(".total_price").text(result);
-                     })
-                     $('.plus').click(function () {
-                        var total = $(".total_price").text();
-                         var price = $(this).closest(".plus_minus").closest(".row").find(".price").text();
-                      var result = parseInt(total) + parseInt(price);
-                      $(".total_price").text(result);
-                     });
-                     
-                      $('.minus').click(function () {
-                        var total = $(".total_price").text();
-                         var price = $(this).closest(".plus_minus").closest(".row").find(".price").text();
-                      var result = parseInt(total) - parseInt(price);
-                      $(".total_price").text(result);
-                     });
-                    })
-                
-                </script>
-                <script>
-                        // Delete basket item result from database with ajax
-                        $(document).ready(function() {
-                            $(".close").click(function() {
+                    </script>
+                    <script>$(document).ready(function () {
+                            $('.close').click(function () {
+                                var total = $(".total_price").text();
+                                var price = $(this).closest(".price").text();
+                                var qty = $(this).closest(".row").find("#orderItemQuantity").text();
+                                var result = parseInt(total) - (parseInt(qty) * parseInt(price));
+                                $(".total_price").text(result);
+                            })
+                            $('.plus').click(function () {
+                                var total = $(".total_price").text();
+                                var price = $(this).closest(".plus_minus").closest(".row").find(".price").text();
+                                var result = parseInt(total) + parseInt(price);
+                                $(".total_price").text(result);
+                            });
+
+                            $('.minus').click(function () {
+                                var total = $(".total_price").text();
+                                var price = $(this).closest(".plus_minus").closest(".row").find(".price").text();
+                                var result = parseInt(total) - parseInt(price);
+                                $(".total_price").text(result);
+                            });
+                        })</script>
+                    <script>// Delete basket item result from database with ajax
+                        $(document).ready(function () {
+                            $(".close").click(function () {
                                 var id = $(this).closest(".main").find(".value");
                                 var row = $(this).closest(".main");
                                 $.ajax({
                                     // url
                                     url: "/BasketProduct/Basket",
                                     type: "POST",
-                                    data: { Id: id.val()},
-                                    success: function(data) {
+                                    data: { Id: id.val() },
+                                    success: function (data) {
                                         row.remove();
                                     }
                                 });
                             });
-                        });
-                    
-                    </script>
-            }
+                        });</script>
+                }
+
+            </div>
 
         </div>
+    </section>
 
-    </div>
-</section>
+    <!-- info section -->
+    <section class="info_section layout_padding2">
+        <div class="container">
+            <div class="info_logo">
+                <h2>
+                    Digitf
+                </h2>
+            </div>
+            <div class="row">
 
-<!-- info section -->
-<section class="info_section layout_padding2">
-    <div class="container">
-        <div class="info_logo">
-            <h2>
-                Digitf
-            </h2>
+                <div class="col-md-3">
+                    <div class="info_contact">
+                        <h5>
+                            About Shop
+                        </h5>
+                        <div>
+                            <div class="img-box">
+                                <img src="images/location-white.png" width="18px" alt="">
+                            </div>
+                            <p>
+                                Address
+                            </p>
+                        </div>
+                        <div>
+                            <div class="img-box">
+                                <img src="images/telephone-white.png" width="12px" alt="">
+                            </div>
+                            <p>
+                                +01 1234567890
+                            </p>
+                        </div>
+                        <div>
+                            <div class="img-box">
+                                <img src="images/envelope-white.png" width="18px" alt="">
+                            </div>
+                            <p>
+                                demo@gmail.com
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="info_info">
+                        <h5>
+                            Informations
+                        </h5>
+                        <p>
+                            ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="info_insta">
+                        <h5>
+                            Instagram
+                        </h5>
+                        <div class="insta_container">
+                            <div>
+                                <a href="">
+                                    <div class="insta-box b-1">
+                                        <img src="images/i-1.jpg" alt="">
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="insta-box b-2">
+                                        <img src="images/i-2.jpg" alt="">
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="">
+                                    <div class="insta-box b-3">
+                                        <img src="images/i-3.jpg" alt="">
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="insta-box b-4">
+                                        <img src="images/i-4.jpg" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="">
+                                    <div class="insta-box b-3">
+                                        <img src="images/i-5.jpg" alt="">
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="insta-box b-4">
+                                        <img src="images/i-6.jpg" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="info_form ">
+                        <h5>
+                            Newsletter
+                        </h5>
+                        <form action="">
+                            <input type="email" placeholder="Enter your email">
+                            <button>
+                                Subscribe
+                            </button>
+                        </form>
+                        <div class="social_box">
+                            <a href="">
+                                <img src="images/fb.png" alt="">
+                            </a>
+                            <a href="">
+                                <img src="images/twitter.png" alt="">
+                            </a>
+                            <a href="">
+                                <img src="images/linkedin.png" alt="">
+                            </a>
+                            <a href="">
+                                <img src="images/youtube.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row">
+    </section>
 
-            <div class="col-md-3">
-                <div class="info_contact">
-                    <h5>
-                        About Shop
-                    </h5>
-                    <div>
-                        <div class="img-box">
-                            <img src="images/location-white.png" width="18px" alt="">
-                        </div>
-                        <p>
-                            Address
-                        </p>
-                    </div>
-                    <div>
-                        <div class="img-box">
-                            <img src="images/telephone-white.png" width="12px" alt="">
-                        </div>
-                        <p>
-                            +01 1234567890
-                        </p>
-                    </div>
-                    <div>
-                        <div class="img-box">
-                            <img src="images/envelope-white.png" width="18px" alt="">
-                        </div>
-                        <p>
-                            demo@gmail.com
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="info_info">
-                    <h5>
-                        Informations
-                    </h5>
-                    <p>
-                        ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="info_insta">
-                    <h5>
-                        Instagram
-                    </h5>
-                    <div class="insta_container">
-                        <div>
-                            <a href="">
-                                <div class="insta-box b-1">
-                                    <img src="images/i-1.jpg" alt="">
-                                </div>
-                            </a>
-                            <a href="">
-                                <div class="insta-box b-2">
-                                    <img src="images/i-2.jpg" alt="">
-                                </div>
-                            </a>
-                        </div>
-
-                        <div>
-                            <a href="">
-                                <div class="insta-box b-3">
-                                    <img src="images/i-3.jpg" alt="">
-                                </div>
-                            </a>
-                            <a href="">
-                                <div class="insta-box b-4">
-                                    <img src="images/i-4.jpg" alt="">
-                                </div>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="">
-                                <div class="insta-box b-3">
-                                    <img src="images/i-5.jpg" alt="">
-                                </div>
-                            </a>
-                            <a href="">
-                                <div class="insta-box b-4">
-                                    <img src="images/i-6.jpg" alt="">
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="info_form ">
-                    <h5>
-                        Newsletter
-                    </h5>
-                    <form action="">
-                        <input type="email" placeholder="Enter your email">
-                        <button>
-                            Subscribe
-                        </button>
-                    </form>
-                    <div class="social_box">
-                        <a href="">
-                            <img src="images/fb.png" alt="">
-                        </a>
-                        <a href="">
-                            <img src="images/twitter.png" alt="">
-                        </a>
-                        <a href="">
-                            <img src="images/linkedin.png" alt="">
-                        </a>
-                        <a href="">
-                            <img src="images/youtube.png" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div>
+    <!-- end info_section -->
+    <!-- footer section -->
+    <section class="container-fluid footer_section ">
+        <div class="container">
+            <p>
+                &copy; 2019 All Rights Reserved By
+                <a href="https://html.design/">Free Html Templates</a>
+            </p>
         </div>
-    </div>
-</section>
-
-<!-- end info_section -->
-<!-- footer section -->
-<section class="container-fluid footer_section ">
-    <div class="container">
-        <p>
-            &copy; 2019 All Rights Reserved By
-            <a href="https://html.design/">Free Html Templates</a>
-        </p>
-    </div>
-</section>
-<!-- end  footer section -->
+    </section>
+    <!-- end  footer section -->
 
 
 </body>
-
-</html>
