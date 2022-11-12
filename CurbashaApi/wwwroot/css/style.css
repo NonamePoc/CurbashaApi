@@ -545,6 +545,21 @@ a:focus {
     position: relative;
 }
 
+.contact_btn {
+    font-size: 15px!important; 
+    border-radius: 20px!important;
+    color: white!important;
+    border: 2px solid #24d278!important;
+    background: #24d278 !important;
+
+}
+
+    .contact_btn:hover {
+        color: #24d278!important;
+        border: 2px solid #24d278!important;
+        background: white!important;
+    }
+
     .contact_section .design-box {
         position: absolute;
         bottom: 50%;
@@ -1205,8 +1220,12 @@ a:focus {
 }
 
 .plus_minus {
+    width: 20%;
     display: flex;
     align-items: center;
+}
+.close:hover{
+    cursor: pointer;
 }
 
 .qty {

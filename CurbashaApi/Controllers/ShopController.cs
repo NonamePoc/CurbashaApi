@@ -66,6 +66,7 @@ namespace CurbashaApi.Controllers
                 ImagePathes = imagePathes
             };
             return View(product);
+            return RedirectToAction("Shop", "Shop");
         }
 
         [HttpGet]

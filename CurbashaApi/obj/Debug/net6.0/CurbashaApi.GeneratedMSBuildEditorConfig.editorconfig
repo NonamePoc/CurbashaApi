@@ -19,12 +19,24 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Areas/Identity/Pages/Account/Manage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2V0UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
@@ -41,6 +53,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNlbmRFbWFpbENvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Areas/Identity/Pages/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
@@ -63,6 +87,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/Admin/Error404.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRXJyb3I0MDQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/BasketProduct/Basket.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFza2V0UHJvZHVjdFxCYXNrZXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -75,12 +107,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/Furniture/Furniture.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnVybml0dXJlXEZ1cm5pdHVyZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/Home/Home.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/ProductAdmin/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdEFkbWluXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/ProductAdmin/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdEFkbWluXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/ProductAdmin/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdEFkbWluXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/ProductAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdEFkbWluXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/ProductAdmin/Photo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdEFkbWluXFBob3RvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/Roles/Create.cshtml]
@@ -99,12 +147,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcUm9sZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/Roles/UserList.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcVXNlckxpc3QuY3NodG1s
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/SelectionsAdmin/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VsZWN0aW9uc0FkbWluXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/SelectionsAdmin/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VsZWN0aW9uc0FkbWluXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/SelectionsAdmin/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VsZWN0aW9uc0FkbWluXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/SelectionsAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VsZWN0aW9uc0FkbWluXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/Shared/_LoginPartial.cshtml]
@@ -121,6 +185,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/Shop/Shop.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxTaG9wLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/UserOrdersAdmin/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlck9yZGVyc0FkbWluXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/UserOrdersAdmin/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlck9yZGVyc0FkbWluXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/UserOrdersAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlck9yZGVyc0FkbWluXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/UsersAdmin/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNBZG1pblxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/UsersAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNBZG1pblxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Curbash/CurbashWebAPI/CurbashaApi/CurbashaApi/Views/User/User.cshtml]
