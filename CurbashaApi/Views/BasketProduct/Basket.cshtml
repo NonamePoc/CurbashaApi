@@ -130,7 +130,12 @@
                             $('.minus').click(function () {
                                 var total = $(".total_price").text();
                                 var price = $(this).closest(".plus_minus").closest(".row").find(".price").text();
-                                var result = parseInt(total) - parseInt(price);
+                                //TODO: get orderItemsQuantity
+                                var orderItemsQuantity = $(this).closest(".plus_minus").closest("strong").find("label").text();
+                                console.log(orderItemsQuantity);
+                                if(parseInt(orderItemsQuantity) >= 1) {
+                                    var result = parseInt(total) - parseInt(price);
+                                }
                                 $(".total_price").text(result);
                             });
                         })</script>

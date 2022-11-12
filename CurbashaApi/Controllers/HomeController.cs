@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using CurbashaApi.Areas.Identity.Entity;
 using CurbashaApi.Data;
+using CurbashaApi.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.VisualBasic;
 
@@ -65,6 +66,7 @@ namespace CurbashaApi.Controllers
 
             return View();
         }
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

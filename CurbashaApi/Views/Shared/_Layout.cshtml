@@ -22,8 +22,6 @@
     <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CurbashaApi.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/responsive.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/owl.carousel.min.css" asp-append-version="true">
-    <link rel="stylesheet" href="~/css/owl.theme.default.min.css" asp-append-version="true">
 
 </head>
 <body>  
@@ -115,7 +113,7 @@
                         </h5>
                         <div>
                             <div class="img-box">
-                                <img src="images/location-white.png" width="18px" alt="">
+                                <img src="~/images/location-white.png" width="18px" alt="">
                             </div>
                             <p>
                                 Address
@@ -123,7 +121,7 @@
                         </div>
                         <div>
                             <div class="img-box">
-                                <img src="images/telephone-white.png" width="12px" alt="">
+                                <img src="~/images/telephone-white.png" width="12px" alt="">
                             </div>
                             <p>
                                 +12 2323232323
@@ -131,7 +129,7 @@
                         </div>
                         <div>
                             <div class="img-box">
-                                <img src="images/envelope-white.png" width="18px" alt="">
+                                <img src="~/images/envelope-white.png" width="18px" alt="">
                             </div>
                             <p>
                                 curbasha@gmail.com
@@ -165,7 +163,6 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/owl.carousel.min.js"></script>
     <script>
         var nav = $("#navbarSupportedContent");
         var btn = $(".custom_menu-btn");
@@ -177,40 +174,7 @@
             document.querySelector(".custom_menu-btn").classList.toggle("menu_btn-style")
         });
     </script>
-    <script>
-        $(document).ready(function () {
-            $(".owl-carousel").owlCarousel({
-                loop: true,
-                margin: 10,
-                nav: true,
-                navText: [],
-                autoplay: true,
-                autoplayHoverPause: true,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    420: {
-                        items: 2
-                    },
-                    1000: {
-                        items: 5
-                    }
-                }
-
-            });
-        });
-    </script>
-    <script>
-        $('.carousel').on('slid.bs.carousel', function () {
-            $(".indicator-2 li").removeClass("active");
-            indicators = $(".carousel-indicators li.active").data("slide-to");
-            a = $(".indicator-2").find("[data-slide-to='" + indicators + "']").addClass("active");
-            console.log(indicators);
-
-        })
-    </script>
-
+   
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

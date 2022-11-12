@@ -20,8 +20,6 @@ namespace CurbashaApi.Controllers
         {
             _context = context;
         }
-
-
         public async Task<IActionResult> Shop()
         {
             var allProducts = _context.AspProducts.Where(p => p.IsActive == true);
@@ -39,14 +37,14 @@ namespace CurbashaApi.Controllers
         {
             if (id == null)
             {
-                return RedirectToAction("Home", "Home");
+                return RedirectToAction("Shop");
             }
 
             var selectedProduct = _context.AspProducts.FirstOrDefault(p => p.Id == id);
 
             if (selectedProduct == null)
             {
-                return RedirectToAction("Home", "Home");
+                return RedirectToAction("Shop");
             }
 
             var selectedSection = _context.AspSelections.FirstOrDefault(s => s.Id == selectedProduct.SelectionId);
@@ -54,7 +52,7 @@ namespace CurbashaApi.Controllers
 
             if (!selectedProduct.IsActive || !selectedSection.IsActive)
             {
-                return RedirectToAction("Home", "Home");
+                return RedirectToAction("Shop");
             }
             string[] imagePathes = new string[2];
             imagePathes[0] = $"~/images/products/{id}.1.jpg";
@@ -66,7 +64,6 @@ namespace CurbashaApi.Controllers
                 ImagePathes = imagePathes
             };
             return View(product);
-            return RedirectToAction("Shop", "Shop");
         }
 
         [HttpGet]
@@ -115,7 +112,7 @@ namespace CurbashaApi.Controllers
 
                     _context.AspUserOrder.Add(userOder);
                     _context.SaveChanges();
-                    return RedirectToAction("Product");
+                    return RedirectToAction("Product",  new { id = selectedProduct.Id });
                 }
 
                 //// add price to total
@@ -148,7 +145,7 @@ namespace CurbashaApi.Controllers
                 }
             }
 
-            return RedirectToAction("Product");
+            return RedirectToAction("Product",  new { id = selectedProduct.Id });
         }
     }
 }
