@@ -11,10 +11,13 @@ namespace CurbashaApi.Controllers
     {
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<IdentityUser> _userManager;
-        public RolesController(RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager)
+        private readonly SignInManager<IdentityUser> _signInManager;
+        public RolesController(RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager, 
+            SignInManager<IdentityUser> signInManager)
         {
             _roleManager = roleManager;
             _userManager = userManager;
+            _signInManager = signInManager;
         }
         public IActionResult Index() => View(_roleManager.Roles.ToList());
 
@@ -88,15 +91,17 @@ namespace CurbashaApi.Controllers
                 var addedRoles = roles.Except(userRoles);
                 // получаем роли, которые были удалены
                 var removedRoles = userRoles.Except(roles);
-
+                
                 await _userManager.AddToRolesAsync(user, addedRoles);
 
                 await _userManager.RemoveFromRolesAsync(user, removedRoles);
 
+                await _signInManager.RefreshSignInAsync(user);
+                
                 return RedirectToAction("Index", "UsersAdmin");
             }
 
-            return NotFound();
+            return RedirectToAction("Error404", "Admin");
         }
     }
 }

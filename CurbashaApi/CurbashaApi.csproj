@@ -9,6 +9,9 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\images\logo.png" />
+    <Content Update="wwwroot\css\user-style.css">
+      <DependentUpon>user-style.scss</DependentUpon>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
