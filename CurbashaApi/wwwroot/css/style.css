@@ -856,6 +856,13 @@ a:focus {
     padding: 80px 0;
 }
 
+.total_price{
+    text-align: right;
+}
+
+.uah{
+    width:60px;
+}
 .card {
     margin: auto;
     max-width: 950px;
