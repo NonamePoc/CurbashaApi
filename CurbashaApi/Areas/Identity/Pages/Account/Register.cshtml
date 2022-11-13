@@ -1,0 +1,48 @@
+﻿@page
+@model RegisterModel
+
+    <!-- contact section -->
+
+    <section class="contact_section layout_padding">
+        <div class="container ">
+            <div class="heading_container" style="justify-content: center;">
+                <h2 class="">
+                    Sign Up
+                </h2>
+            </div>
+
+        </div>
+        <div class="container">
+            <div class="row" style="justify-content: center;">
+                <div class="col-md-6">
+                    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                        <div>
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="Email" />
+                        </div>
+                        <div>
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Password" />
+                        </div>
+                        <div>
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                            <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Confirm Password" />
+                        </div>
+                        <div class="d-flex " style="justify-content: center;">
+                            <button id="registerSubmit" type="submit">
+                                SIGN UP
+                            </button>
+
+                        </div>
+                    </form>
+                    <p style="text-align: center; padding-top: 20px; margin-right: 20px;">Or <a asp-area="Identity" asp-page="/Account/Login" style="margin-right: 20px;" style="color: #24d278">Sign In</a></p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- end contact section -->
+    
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }

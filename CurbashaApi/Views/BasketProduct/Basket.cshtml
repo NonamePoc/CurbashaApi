@@ -1,0 +1,190 @@
+@using CurbashaApi.Areas.Identity.Entity
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<CurbashaApi.Areas.Identity.Entity.AspOrderItem>
+
+
+
+    <section class="cart-section">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-8 cart">
+                    <div class="title">
+                        <div class="row">
+                            <div class="col">
+                                <h4>
+                                    <b>Shopping Cart</b>
+                                </h4>
+                            </div>
+                            <div class="col align-self-center text-right text-muted"></div>
+                        </div>
+                    </div>
+
+                    <div class="order-items-body">
+                        @foreach (var item in Model)
+                        {
+                            <div class="row border-top border-bottom">
+                                <div class="row main align-items-center" id="@item.Id">
+                                    <div class="col-2">
+                                        <img class="img-fluid" src="~/images/products/@item.ProductId.1.jpg">
+                                    </div>
+                                    <div class="col">
+                                        <div class="row text-muted">@item.ProductName</div>
+                                    </div>
+                                    <div class="plus_minus">
+                                        <input type='button' value='-' class='minus' />
+                                        <strong>
+                                            <label id="orderItemQuantity">@item.Quantity</label>
+                                        </strong>
+                                        <input type='button' value='+' class='plus' />
+                                        <input id="orderItemId" class="value" value="@item.Id" hidden />
+                                    </div>
+                                    <div class="col-2">@item.Size</div>
+                                    <div class="col price">
+                                    @item.Price <span>UAH</span> <span class='close'>&#10005;</span>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="back-to-shop">
+                        <a href="@Url.Action("Shop", "Shop")">&leftarrow;</a><in class="text-muted">Back to shop</in>
+                    </div>
+                </div>
+                <div class="col-md-4 summary">
+                    <div>
+                        <h5>
+                            <b>Summary</b>
+                        </h5>
+                    </div>
+                    <hr>
+                    <div class="row">
+                    </div>
+                    <form>
+                        <p>GIVE CODE</p>
+                        <input id="code" placeholder="Enter your code">
+                    </form>
+                    <div class="row" style="border-top: 1px solid rgba(0, 0, 0, .1); padding: 2vh 0;">
+                        <div class="col">PRICE</div>
+                    <div class="col text-right total_price">@ViewBag.total</div><span class="uah">UAH</span>
+                    </div>
+                    <form asp-action="Checkout">
+                        <button type="submit" class="btn">MAKE AN ORDER</button>
+                    </form>
+                </div>
+
+                @section Scripts
+            {
+                    <script>
+
+                $(document).ready(function() {
+                    $("div.order-items-body div.plus_minus input[type=button]").click(function() {
+                         changeQuantity($(this));
+                     });
+                });
+
+                function changeQuantity(changeQuantityBtn){
+                    const parentDiv = changeQuantityBtn.parent();
+
+                    const orderItemQuantity = parentDiv.find('#orderItemQuantity');
+                    let orderItemQuantityValue = parseInt(orderItemQuantity.text());
+
+                    const orderItemId = parentDiv.find('#orderItemId').val();
+                    const symbol = changeQuantityBtn.val();
+
+                    if(orderItemQuantityValue <= 1 && symbol === '-')
+                        return;
+
+                     $.ajax({
+                         url: "@Url.Action("ChangeOrderItemQuantity")",
+                         type: "POST",
+                         data: { Id: orderItemId, Symbol: symbol},
+                         success: function (){
+                           if(symbol === '+'){
+                               orderItemQuantity.text(++orderItemQuantityValue);
+                           } else {
+                               orderItemQuantity.text(--orderItemQuantityValue);
+                           }
+                         },
+                         error: function (jqXHR, exception) {
+                            alert(jqXHR);
+                            alert(exception);
+                         }
+                     });
+                }
+                    </script>
+                    <script>$(document).ready(function () {
+                        var orderItemQuantity = $("#orderItemQuantity").text();
+                        if (parseInt(orderItemQuantity) - 1 < 1) {
+                            $("#orderItemQuantity").text(1);
+                            $('.minus').prop('disabled', true);
+                        } else {
+                            $('.minus').prop('disabled', false);
+                        }
+                        $('.close').click(function () {
+                            var total = $(".total_price").text();
+                            var price = $(this).closest(".price").text();
+                            var qty = $(this).closest(".row").find("#orderItemQuantity").text();
+                            var result = parseInt(total) - (parseInt(qty) * parseInt(price));
+                            $(".total_price").text(result);
+                        })
+                        $('.plus').click(function () {
+                            var orderItemQuantity = $(this).closest(".plus_minus").closest(".row").find("#orderItemQuantity").text();
+                            $(this).closest(".plus_minus").closest(".row").find("#orderItemQuantity").text(parseInt(orderItemQuantity) + 1);
+                            var total = $(".total_price").text();
+                            var price = $(this).closest(".plus_minus").closest(".row").find(".price").text();
+                            var result = parseInt(total) + parseInt(price);
+                            $(".total_price").text(result);
+                        });
+
+
+                        $('.plus_minus').click(function () {
+                            var orderItemQuantity = $(this).closest(".plus_minus").closest(".row").find("#orderItemQuantity").text();
+                            if (parseInt(orderItemQuantity) - 1 < 1) {
+                                $(this).closest(".plus_minus").closest(".row").find("#orderItemQuantity").text(1);
+                                $(this).find('.minus').prop('disabled', true);
+                            } else {
+                                $(this).find('.minus').prop('disabled', false);
+                            }
+                        });
+
+
+
+                        $('.minus').click(function () {
+                            var orderItemQuantity = $(this).closest(".plus_minus").closest(".row").find("#orderItemQuantity").text();
+                            $(this).closest(".plus_minus").closest(".row").find("#orderItemQuantity").text(parseInt(orderItemQuantity) - 1);
+                            var total = $(".total_price").text();
+                            var price = $(this).closest(".plus_minus").closest(".row").find(".price").text();
+                            var result = parseInt(total) - parseInt(price);
+                            $(".total_price").text(result);
+                        });
+
+
+                            
+                        })</script>
+                    <script>// Delete basket item result from database with ajax
+                        $(document).ready(function () {
+                            $(".close").click(function () {
+                                var id = $(this).closest(".main").find(".value");
+                                var row = $(this).closest(".main");
+                                $.ajax({
+                                    // url
+                                    url: "/BasketProduct/Basket",
+                                    type: "POST",
+                                    data: { Id: id.val() },
+                                    success: function (data) {
+                                        row.remove();
+                                    }
+                                });
+                            });
+                        });</script>
+                }
+
+            </div>
+
+        </div>
+    </section>
+
+   
+
+   
+

@@ -1,0 +1,15 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Register confirmation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h1 class="text-center">@ViewData["Title"]</h1>
+    <p class="text-center">
+        Please check your email to confirm your account.
+    </p>
+    <p style="text-align: center; padding-top: 20px; margin-right: 20px;">
+        To resend email
+        <a asp-area="Identity" asp-page="/Account/ResendEmailConfirmation" style="margin-right: 20px; color: #24d278">click here</a>
+    </p>

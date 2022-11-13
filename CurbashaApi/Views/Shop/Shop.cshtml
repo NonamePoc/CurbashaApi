@@ -1,0 +1,75 @@
+﻿@model CurbashaApi.ViewModel.ShopViewModel
+
+@{
+    ViewData["Title"] = "Shop";
+}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-gradient sticky">
+        <!-- Container wrapper -->
+        <div class="container-fluid ">
+            <!-- Toggle button -->
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse justify-content-center"
+                 id="navbarCenteredExample">
+                <!-- Left links -->
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    @foreach (var selection in Model.Selections)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#@selection.Id">@selection.SelectionName</a>
+                        </li>
+                    }
+                </ul>
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+
+    <!-- brand section -->
+    @foreach (var selection in Model.Selections)
+    {
+        <section class="brand_section layout_padding">
+            <div class="container">
+                <div class="heading_container">
+                    <h2>
+                        <a name="@selection.Id"></a>
+                        @selection.SelectionName
+                    </h2>
+                </div>
+                <div class="brand_container layout_padding2">
+                    @foreach (var product in Model.Products.Where(prod => prod.SelectionId == selection.Id))
+                    {
+                        <div class="box">
+                            <a asp-area="" asp-controller="Shop" asp-action="Product" asp-route-id="@product.Id">
+
+                                @*@if((product.CreatedAt - DateTime.Now).TotalDays < 30)
+                        <div class="new">
+                        <h5>
+                        New
+                        </h5>
+                        </div>*@
+                                <div class="img-box">
+                                    @if (System.IO.File.Exists($"wwwroot/images/products/{@product.Id}.1.jpg"))
+                                    {
+                                        <img src="~/images/products/@product.Id.1.jpg" alt="">
+                                    }
+                                </div>
+                                <div class="detail-box">
+                                    <h6 class="price">
+                                        @product.Price UAH
+                                    </h6>
+                                    <h6>
+                                        @product.NameProduct
+                                    </h6>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+    }
+    <!-- end brand section -->
+

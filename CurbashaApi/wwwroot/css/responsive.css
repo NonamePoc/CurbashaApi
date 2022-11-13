@@ -1,0 +1,127 @@
+
+
+@media (max-width: 992px) {
+    #navbarSupportedContent {
+        opacity: 1;
+        transform: none;
+    }
+
+    .sub_page .hero_area::after {
+        display: none;
+    }
+
+    .navbar-toggler {
+        padding: 0.25rem 0;
+    }
+
+
+    .header_section .user_option {
+        display: none;
+    }
+
+    .custom_menu-btn {
+        display: none;
+    }
+
+    .navbar-nav {
+        align-items: center;
+    }
+
+    .custom_nav-container .navbar-toggler {
+        margin-left: auto;
+    }
+
+    .custom_nav-container {
+        padding: 15px 0;
+        height: auto;
+    }
+
+    .brand_section {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero_area {
+        height: auto;
+    }
+
+        .hero_area::after {
+            background-image: none;
+            background-color: #1fd778;
+            width: 100%;
+            height: 450px;
+        }
+
+    .hero_area {
+        background: none;
+    }
+
+    .about_section .detail-box {
+        margin-bottom: 45px;
+    }
+
+    .discount_section .detail-box {
+        margin-bottom: 45px;
+    }
+
+    .discount_section .detail-box {
+        text-align: center;
+    }
+
+
+
+        .discount_section .detail-box h2 {
+            padding: 0;
+        }
+
+    .client_section .client_container {
+        flex-direction: column;
+    }
+
+    .client_section .client_box.b-1 {
+        margin-bottom: 45px;
+    }
+
+    .info_section .col-md-3 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 15px 0;
+    }
+
+    .info_section .box {
+        justify-content: center;
+    }
+
+    .info_section .box {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact_section form {
+        padding: 0;
+        margin-bottom: 45px;
+    }
+
+    .info_section .info_form .social_box {
+        justify-content: center;
+    }
+
+        .info_section .info_form .social_box a {
+            margin: 0 10px;
+        }
+
+    .contact_section .map_container {
+        padding: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1170px;
+    }
+}

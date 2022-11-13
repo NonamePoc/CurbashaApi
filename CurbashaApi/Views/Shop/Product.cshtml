@@ -1,0 +1,62 @@
+﻿@model CurbashaApi.ViewModel.ProductViewModel
+@{
+    ViewData["Title"] = Model.Product.NameProduct;
+}
+
+
+<<section class="product-section">
+
+    <!-- Left Column / Headphones Image -->
+    <div class="img-box-product">
+        <img src="@Model.ImagePathes[0]" alt="@Model.Product.NameProduct" asp-append-version="true">
+    </div>
+    <!-- Right Column -->
+    <div class="right-column">
+        <!-- Product Description -->
+        <div class="product-description">
+            <span>@Model.SectionName</span>
+            <h1>@Model.Product.NameProduct</h1>
+            <p>@Model.Product.Description</p>
+        </div>
+
+        <!-- Product Configuration -->
+        @section Scripts
+            {
+            <script>
+                $(document).ready(function () {
+                    $("div.cable-choose button").click(function () {
+                        setOrderUrl($(this).val());
+                    });
+                });
+
+                function setOrderUrl(size) {
+                    const btn = $("#orderBtn");
+
+                    if (size == null) {
+                        btn.attr("href", '#').text('Choose a size');
+                        return;
+                    }
+                    const url = '/Shop/Order?size=' + size + '&id=' + @Model.Product.Id;
+                    btn.attr("href", url).text('Add to cart');
+                }
+            </script>
+        }
+            <div class="product-configuration">
+                <!-- Cable Configuration -->
+                <div class="cable-config">
+                    <span>Розмір</span>
+                    <div class="cable-choose">
+                        <button value="S" id="sizeBtnS">S</button>
+                        <button value="M" id="sizeBtnM">M</button>
+                        <button value="L" id="sizeBtnL">L</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Pricing -->
+            <div class="product-price">
+                <span>@Model.Product.Price UAH</span>
+                @*<input type="submit" value="Add to cart" class="cart-btn" />*@
+                <a class="cart-btn" id="orderBtn" href="#" role="button">Choose a size</a>
+            </div>
+        </div>
+    </section>
