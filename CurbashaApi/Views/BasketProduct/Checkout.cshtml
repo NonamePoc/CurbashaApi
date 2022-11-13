@@ -4,10 +4,28 @@
     ViewBag.Title = "Checkout Complete";
     Layout = "_Layout";
 }
-<h2>Checkout Complete</h2>
-<p>Thanks for your order! Your order id is: @Model.Id </p>
-@*<p>Order Total: @Model.Total</p>*@
-<p>
-    How about shopping for some more music in our
-    @Html.ActionLink("store", "Home", "Home")
-</p>
+
+<section class="contact_section layout_padding">
+    <div class="container ">
+        <div class="heading_container" style="justify-content: center;">
+            <h2 class="">
+                Checkout Complete
+            </h2>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="row" style="justify-content: center;">
+            <div class="col-md-6">
+
+                <p>Thanks for your order! Your order id is: @Model.Id </p>
+                @*<p>Order Total: @Model.Total</p>*@
+                <p>
+                    How about shopping for some more clothes in our
+                    @Html.ActionLink("store", "Home", "Home")
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>

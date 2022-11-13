@@ -27,8 +27,7 @@ namespace CurbashaApi.Controllers
             {
                 return RedirectToAction("Shop", "Shop");
             }
-
-
+            
             var items = _context.AspOrderItems.Select(s => s).Where(w => w.OrderId == delivery.Id);
 
             ViewBag.total = _context.AspOrderItems.Select(s => s).Where(w => w.OrderId == delivery.Id)
@@ -50,13 +49,20 @@ namespace CurbashaApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Checkout()
+        public async Task<IActionResult> Checkout()
         {
             var delivery = GetDelivery();
 
-            //ViewBag.total = _context.AspUserOrder.Select(s => s).Where(w => w.Id == delivery.Id).FirstOrDefault().Total;
+            var items = _context.AspOrderItems.Where(w => w.OrderId == delivery.Id);
+            if (items.Count() != 0)
+            {
+                delivery.IsActive = false;
+                _context.Update(delivery);
+                await _context.SaveChangesAsync();
 
-            return View(delivery);
+                return View(delivery);
+            }
+            return RedirectToAction("Basket");
         }
 
         [HttpPost]
