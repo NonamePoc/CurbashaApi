@@ -15,26 +15,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <form asp-action="Contact">
+                    <form asp-action="Contact" id="contact_form">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div>
-                            <input type="text" asp-for="Name" class="form-control" placeholder="Name" />
                             <span asp-validation-for="Name" class="text-danger"></span>
+                            <input type="text" asp-for="Name" class="form-control" placeholder="Name" />
                         </div>
                         <div>
-                            <input type="text" asp-for="Email" class="form-control" placeholder="Email"/>
                             <span asp-validation-for="Email" class="text-danger"></span>
+                            <input type="text" asp-for="Email" class="form-control" placeholder="Email"/>                            
                         </div>
                         <div>
+                             <span asp-validation-for="Subject" class="text-danger"></span>
                             <input type="text" asp-for="Subject" class="form-control" placeholder="Subject"/>
-                            <span asp-validation-for="Subject" class="text-danger"></span>
                         </div>
                         <div > 
-                            <input type="text" asp-for="Body" class="message-box" placeholder="Message"/>
                             <span asp-validation-for="Body" class="text-danger"></span>
+                            <input type="text" asp-for="Body" class="message-box" placeholder="Message"/>
                         </div>
                         <div class="d-flex ">
-                            <input type="submit" value="SEND" class="btn btn-primary contact_btn"  />
+                            <input type="submit" value="SEND" class="btn btn-primary contact_btn" onclick="submitForm()"  />
                         </div>
                         <div>
                             <i>@ViewBag.Message</i>
@@ -54,5 +54,10 @@
         </div>
     </section>
     <!-- end contact section -->
+
+@section Scripts{   
+                <partial name="_ValidationScriptsPartial" />
+    }
+    
 
 

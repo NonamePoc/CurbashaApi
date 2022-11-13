@@ -35,6 +35,7 @@ namespace CurbashaApi.Controllers
             if (response != null)
             {
                 ViewBag.Message = "Successfully sent";
+                ModelState.Clear();
             }
             else
             {

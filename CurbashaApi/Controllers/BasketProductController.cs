@@ -62,7 +62,7 @@ namespace CurbashaApi.Controllers
 
                 return View(delivery);
             }
-            return RedirectToAction("Basket");
+            return RedirectToAction("Home", "Home");
         }
 
         [HttpPost]
